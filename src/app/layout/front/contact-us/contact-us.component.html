@@ -1,0 +1,111 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact sections-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>We’re Here to Help</h2>
+            <p>We're here to help you with all your IT needs. Whether you have questions about our services, need
+                technical support, or want to discuss a potential project, our team is ready to assist you. Fill out the
+                form below, give us a call, or send us an email. We look forward to connecting with you!</p>
+        </div>
+
+        <div class="row gx-lg-0 gy-4">
+
+            <div class="col-lg-4">
+
+                <div class="info-container d-flex flex-column align-items-center justify-content-center">
+                    <div class="info-item d-flex">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h4>Location:</h4>
+                            <p>A-408, Siddhi Vinayak Towers,
+                                near Kataria Arcade, Makarba,
+                                Ahmedabad, Gujarat 380051</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h4>Email:</h4>
+                            <p>info&#64;chasemind.in</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex">
+                        <i class="bi bi-phone flex-shrink-0"></i>
+                        <div>
+                            <h4>Call:</h4>
+                            <p>+1 5589 55488 55</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex">
+                        <i class="bi bi-clock flex-shrink-0"></i>
+                        <div>
+                            <h4>Open Hours:</h4>
+                            <p>Mon-Sat: 10AM - 20PM</p>
+                        </div>
+                    </div><!-- End Info Item -->
+                </div>
+
+            </div>
+            <div class="col-lg-8">
+                <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" class="php-email-form">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input formControlName="name" type="text" name="name" class="form-control" id="name"
+                                placeholder="Your Name"
+                                [ngClass]="submittedContactUslData && fContactUsData['name'].errors?.['required'] ? 'is-invalid': ''">
+                            <div *ngIf="submittedContactUslData && fContactUsData['name'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fContactUsData['name'].errors">
+                                    <span class="error_msg invalid-feedback">Name is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input formControlName="email" type="email" class="form-control" name="email" id="email"
+                                placeholder="Your Email"
+                                [ngClass]="submittedContactUslData && fContactUsData['email'].errors?.['required'] ? 'is-invalid': ''">
+                            <div *ngIf="submittedContactUslData && fContactUsData['email'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fContactUsData['email'].errors">
+                                    <span class="error_msg invalid-feedback">Email is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input formControlName="subject" type="text" class="form-control" name="subject" id="subject"
+                            placeholder="Subject" [ngClass]="submittedContactUslData && fContactUsData['subject'].errors?.['required'] ? 'is-invalid': ''">
+                            <div *ngIf="submittedContactUslData && fContactUsData['subject'].errors?.['required']"
+                            class="text-right">
+                            <div *ngIf="fContactUsData['subject'].errors">
+                                <span class="error_msg invalid-feedback">Subject is Required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea formControlName="message" class="form-control" name="message" rows="7"
+                            placeholder="Message" [ngClass]="submittedContactUslData && fContactUsData['message'].errors?.['required'] ? 'is-invalid': ''"></textarea>
+                            <div *ngIf="submittedContactUslData && fContactUsData['message'].errors?.['required']"
+                            class="text-right">
+                            <div *ngIf="fContactUsData['message'].errors">
+                                <span class="error_msg invalid-feedback">Message is Required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Inquiry</button></div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

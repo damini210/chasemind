@@ -1,0 +1,40 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="card my-5">
+        <div class="card-body">
+          <a href="#" class="d-flex justify-content-center mb-4">
+            <img src="assets/img/logo/logo1.png" class="admin-logo" />
+          </a>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" value="info@codedthemes.com"
+                formControlName="email" />
+              <label for="floatingInput">Email address / Username</label>
+              <div *ngIf="submittedLoginData && fLoginData['email'].errors" class="text-right">
+                <div *ngIf="fLoginData['email'].errors?.['required']">
+                  <span class="error_msg">Email ID is Required.</span>
+                </div>
+                <div *ngIf="!fLoginData['email'].errors?.['valid'] && !fLoginData['email'].errors?.['required']">
+                  <span class="error_msg">Please Enter Valid Email ID.</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="password" value="12345" formControlName="pwd" />
+              <label for="password">Password</label>
+              <div *ngIf="submittedLoginData && fLoginData['pwd'].errors?.['required']" class="text-right">
+                <div *ngIf="fLoginData['pwd'].errors">
+                  <span class="error_msg">Password is Required.</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-secondary login-btn">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

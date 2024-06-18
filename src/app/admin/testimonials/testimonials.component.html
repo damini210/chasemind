@@ -1,0 +1,160 @@
+<div class="pc-h-item d-none d-md-inline-flex">
+
+    <div class="search-btn">
+    </div>
+    <input type="search" class="form-control" placeholder="Search here. . ." />
+    <button class="btn btn-light-secondary btn-search">
+        <i class="ti ti-adjustments-horizontal"></i>
+    </button>
+</div>
+<div class="mb-4" style="float: right;">
+    <button (click)="openModel()" class="btn btn-light-secondary btn-search">
+        Add
+    </button>
+</div>
+
+<table mat-table [dataSource]="testimonialMasterList">
+    <!-- <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>
+            Id
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.id}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="user_id">
+        <th mat-header-cell *matHeaderCellDef>
+            User Id
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{ element.userId }}
+        </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef>
+            clientName
+        </th>
+        <td mat-cell *matCellDef="let testimonial">
+            {{ testimonial['clientName'] }}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="review">
+        <th mat-header-cell *matHeaderCellDef>
+            review
+        </th>
+        <td mat-cell *matCellDef="let testimonial">
+            {{ testimonial['review'] }}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="countryName">
+        <th mat-header-cell *matHeaderCellDef>
+            Country Name
+        </th>
+        <td mat-cell *matCellDef="let testimonial">
+            {{ testimonial['countryName'] }}
+        </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="countryName">
+        <th mat-header-cell *matHeaderCellDef>
+            Action
+        </th>
+        <td mat-cell *matCellDef="let testimonial">
+            {{ testimonial['countryName'] }}
+        </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- <mat-table class="mat-elevation-z8 demo-table" [dataSource]="testimonialMasterList">
+
+    <ng-container matColumnDef="seqNo">
+        <div *matHeaderCellDef>#</div>
+        <div *matCellDef="let testimonial">{{testimonial.seqNo}}</div>
+    </ng-container>
+
+    <ng-container matColumnDef="clientName">
+        <div *matHeaderCellDef>Client Name</div>
+        <div class="description-cell" *matCellDef="let testimonial">{{testimonial['clientName']}}</div>
+    </ng-container>
+
+    <ng-container matColumnDef="review">
+        <div *matHeaderCellDef>rRview</div>
+        <div class="duration-cell" *matCellDef="let testimonial">{{testimonial['review']}}</div>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Testimonials</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="testimonialForm">
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Client Name</label>
+                        <div class="col-sm-8">
+                            <input formControlName="clientName" type="text" class="form-control"
+                                [ngClass]="submittedTestimonialData && fTestimonialData['clientName'].errors?.['required'] ? 'is-invalid': ''"
+                                id="inputEmail3" placeholder="">
+                            <div *ngIf="submittedTestimonialData && fTestimonialData['clientName'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fTestimonialData['clientName'].errors">
+                                    <span class="error_msg invalid-feedback">Client name is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Review</label>
+                        <div class="col-sm-8">
+                            <textarea formControlName="review" class="form-control" id="exampleFormControlTextarea1"
+                                [ngClass]="submittedTestimonialData && fTestimonialData['review'].errors?.['required'] ? 'is-invalid': ''"
+                                rows="3"></textarea>
+                            <div *ngIf="submittedTestimonialData && fTestimonialData['review'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fTestimonialData['review'].errors">
+                                    <span class="error_msg invalid-feedback">Review is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Country Name</label>
+                        <div class="col-sm-8">
+                            <input formControlName="countryName" type="text" class="form-control" id="inputEmail3"
+                                [ngClass]="submittedTestimonialData && fTestimonialData['countryName'].errors?.['required'] ? 'is-invalid': ''"
+                                placeholder="">
+                            <div *ngIf="submittedTestimonialData && fTestimonialData['countryName'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fTestimonialData['countryName'].errors">
+                                    <span class="error_msg invalid-feedback">Country name is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button (click)="closeModal()" type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+                <button (click)="onSubmit()" type="button" class="btn btn-primary">Save Testimonial</button>
+            </div>
+        </div>
+    </div>
+</div>
