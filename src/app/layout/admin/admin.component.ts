@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 
 // Project import
-import { BerryConfig } from '../../app-config';
+import { ChasemindConfig } from '../../app-config';
 import { StorageService, StorageKey } from 'src/app/shared/storage.service';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
@@ -16,11 +16,10 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class AdminComponent {
   // public props
-  berryConfig;
+  chasemindConfig;
   navCollapsed: boolean;
   navCollapsedMob = false;
   windowWidth: number;
-
   // Constructor
   constructor(
     private location: Location,
@@ -30,7 +29,7 @@ export class AdminComponent {
     public commonService: CommonService,
     private http: HttpClient
   ) {
-    this.berryConfig = BerryConfig;
+    this.chasemindConfig = ChasemindConfig;
     // this.tokenCheck();
     let current_url = this.location.path();
     const baseHref = this.locationStrategy.getBaseHref();
@@ -39,11 +38,11 @@ export class AdminComponent {
     }
 
     if (current_url === baseHref + '/layout/theme-compact' || current_url === baseHref + '/layout/box') {
-      this.berryConfig.isCollapse_menu = true;
+      this.chasemindConfig.isCollapse_menu = true;
     }
 
     this.windowWidth = window.innerWidth;
-    this.navCollapsed = this.windowWidth >= 1025 ? BerryConfig.isCollapse_menu : false;
+    this.navCollapsed = this.windowWidth >= 1025 ? ChasemindConfig.isCollapse_menu : false;
   }
 
   // public method
