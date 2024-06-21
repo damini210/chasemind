@@ -42,7 +42,7 @@ export class AdminService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.get(this.commonService.rootData.rootUrl + 'contact/get-contantDataList', { headers: headers });
+        return this.http.get(this.commonService.rootData.rootUrl + 'contact/get-contactDataList', { headers: headers });
     }
 
 }

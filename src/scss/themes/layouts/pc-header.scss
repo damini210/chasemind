@@ -241,7 +241,7 @@
   }
 
   .dropdown-user-profile {
-    min-width: 260px;
+    min-width: 330px;
     max-width: 100%;
 
     .dropdown-item {
@@ -255,6 +255,34 @@
       &:hover {
         background: shift-color($secondary, $soft-bg-level);
         color: $secondary;
+      }
+    }
+
+    .upgradeplan-block {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        border-color: $warning;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+      }
+
+      &::before {
+        border: 3px solid;
+        top: 145px;
+        right: -70px;
+      }
+
+      &::after {
+        border: 19px solid;
+        top: 65px;
+        right: -150px;
       }
     }
 

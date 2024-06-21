@@ -187,38 +187,48 @@ section {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+
 #preloader {
   position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: #fff;
-  transition: all 0.6s ease-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; 
+  z-index: 9999; 
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #fff;
-  border-color: var(--color-primary) transparent var(--color-primary) transparent;
+.loader {
+  position: relative;
+  text-align: center;
+}
+
+.loader img {
+  width: 50px;
+  height: 50px;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin-top: -40px;
+  margin-left: -40px;
+  border: 0 solid transparent;
+  border-top: 4px solid #3498db; 
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/

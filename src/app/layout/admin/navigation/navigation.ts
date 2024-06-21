@@ -40,23 +40,13 @@ const NavigationItems = [
         icon: 'ti ti-typography'
       },
       {
-        id: 'color',
-        title: 'Colors',
+        id: 'contact',
+        title: 'Contact Us List',
         type: 'item',
         classes: 'nav-item',
-        url: '/color',
-        icon: 'ti ti-brush'
+        url: 'contact-list',
+        icon: 'ti ti-device-mobile'
       },
-      {
-        id: 'tabler',
-        title: 'Tabler',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'https://tabler-icons.io/',
-        icon: 'ti ti-plant-2',
-        target: true,
-        external: true
-      }
     ]
   },
 ];

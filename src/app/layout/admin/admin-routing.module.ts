@@ -19,6 +19,15 @@ const routes: Routes = [
         loadComponent: () => import('../../admin/services/services.component')
       },
     ]
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: 'contact-list',
+        loadComponent: () => import('../../admin/contact-list/contact-list.component')
+      },
+    ]
   }
 ];
 
