@@ -197,8 +197,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff; 
-  z-index: 9999; 
+  background-color: #fff;
+  z-index: 9999;
 }
 
 .loader {
@@ -220,15 +220,21 @@ section {
   margin-top: -40px;
   margin-left: -40px;
   border: 0 solid transparent;
-  border-top: 4px solid #3498db; 
+  border-top: 4px solid #3498db;
   border-radius: 50%;
   animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -322,7 +328,7 @@ section {
 }
 
 .header .logo h1 span {
-  color:#006a94;
+  color: #006a94;
 }
 
 .sticked-header-offset {
@@ -606,7 +612,10 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
-.stats-counter, .services, .portfolio, .contact  {
+.stats-counter,
+.services,
+.portfolio,
+.contact {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -616,19 +625,21 @@ section {
   align-items: center;
   min-height: 348px;
   background: url(../img/background/bg-3.png);
-                background-repeat: no-repeat; 
-                background-attachment: scroll !important; 
-                  
-                  /* Arranging the image */ 
-                height: 100%; 
-                /* background-position: center;  */
-                background-repeat: no-repeat; 
-                background-size: contain; 
-                text-align: justify; 
-  
+  background-repeat: no-repeat;
+  background-attachment: scroll !important;
+
+  /* Arranging the image */
+  height: 100%;
+  /* background-position: center;  */
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: justify;
+
 }
 
-.about, .testimonials, .team {
+.about,
+.testimonials,
+.team {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -638,16 +649,16 @@ section {
   align-items: center;
   min-height: 348px;
   background: url(../img/background/bg-2.png);
-                background-repeat: no-repeat; 
-                background-attachment: scroll !important; 
-                  
-                  /* Arranging the image */ 
-                height: 100%; 
-                /* background-position: center;  */
-                background-repeat: no-repeat; 
-                background-size: contain; 
-                text-align: justify; 
-  
+  background-repeat: no-repeat;
+  background-attachment: scroll !important;
+
+  /* Arranging the image */
+  height: 100%;
+  /* background-position: center;  */
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: justify;
+
 }
 
 .about h3 {
@@ -796,15 +807,30 @@ section {
     transition: 0.3s;
   }
 }
+
 .clients .swiper-slide img:hover {
   /* transform: scale(1.1); */
-  animation: bouncing 0.5s .3s; 
+  animation: bouncing 0.5s .3s;
 }
+
 @keyframes bouncing {
-  from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.9, 1.1); }
-  50% { transform: scale(1.1, 0.9); }
-  75% { transform: scale(0.95, 1.05); }
+
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }
 
 .clients .swiper-pagination {
@@ -834,11 +860,6 @@ section {
 .stats-counter .stats-item {
   padding: 20px 0;
   border-bottom: 1px solid #e4e4e4;
-}
-
-.stats-counter .stats-item .purecounter {
-  /* min-width: 90px;
-  padding-right: 15px; */
 }
 
 .plus-span {
@@ -1933,16 +1954,16 @@ section {
   align-items: center;
   min-height: 348px;
   background: url(../img/background/bg-1.png);
-                background-repeat: no-repeat; 
-                background-attachment: scroll !important; 
-                  
-                  /* Arranging the image */ 
-                height: 100%; 
-                /* background-position: center;  */
-                background-repeat: no-repeat; 
-                background-size: contain; 
-                text-align: justify; 
-  
+  background-repeat: no-repeat;
+  background-attachment: scroll !important;
+
+  /* Arranging the image */
+  height: 100%;
+  /* background-position: center;  */
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: justify;
+
 }
 
 @media (min-width: 1365px) {
@@ -2737,4 +2758,18 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+.mat-mdc-form-field-icon-prefix,
+[dir=rtl] .mat-mdc-form-field-icon-suffix {
+  margin-left: 15px;
+}
+
+.search .mat-mdc-text-field-wrapper {
+  width: 300px !important;
+}
+
+table {
+  width: 100% !important;
+  display: table !important;
 }

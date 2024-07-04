@@ -1,17 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminService } from '../../layout/admin/admin.service';
 import { CommonService } from 'src/app/shared/common.service';
-import * as bootstrap from "bootstrap";
-
-declare const $: any;
-
-interface contactListMasterData {
-  Title: string;
-  Categories: string;
-}
-
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-contact-list',
   standalone: true,
@@ -19,56 +13,49 @@ interface contactListMasterData {
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.scss'
 })
+
+
 export default class contactListComponent {
-  displayedColumns: string[] = ['clientName', 'email', 'subject', 'message'];
+  displayedColumns: string[] = ['no', 'name', 'email', 'subject', 'action'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  submittedTestimonialData = false;
-  testimonialMasterList: contactListMasterData[];
-  allTestimonialMaster: contactListMasterData[];
-  testimonialMasterListlength: any;
-  noData;
-
+  contactMasterList: any;
+  contactDetail= [];
   constructor(
     public adminService: AdminService,
-    public commonService: CommonService
+    public commonService: CommonService,
   ) { }
 
   ngOnInit() {
-    // this.noData = false;
-    // this.mySelect = 5;
-    // this.l = 5;
     this.getContactList();
   }
 
-  getContactList() {
 
+  getContactList() {
     this.adminService.getContactMaster().subscribe((Response: any) => {
-      console.log(Response.meta.code)
       if (Response.meta.code == 200) {
-        console.log(Response.data, '11111111111111111');
-        // this.testimonialMasterList = Response.data;
-        // this.allTestimonialMaster = this.testimonialMasterList
-        // this.testimonialMasterList = this.testimonialMasterList.slice();
-        // console.log(Response.data);
-        // this.testimonialMasterListlength = Response.data.length;
-        // if (this.testimonialMasterListlength > 0) {
-        //   this.noData = false;
-        // } else {
-        //   this.noData = true;
-        // }
+        this.contactMasterList = new MatTableDataSource(Response.data);
+        this.contactMasterList.paginator = this.paginator;
+        this.contactMasterList.sort = this.sort;
       } else {
-        this.noData = true;
       }
     }, (error) => {
       console.log(error.error.Message);
     });
   }
 
-  openModel() {
-    $('#exampleModal').modal('show')
-  };
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.contactMasterList.filter = filterValue.trim().toLowerCase();
+  }
+
+  openModel(val) {
+    this.contactDetail = val
+    $('#contactModal').modal('show')
+  }
 
   closeModal() {
-    $('#exampleModal').modal('hide')
+    $('#contactModal').modal('hide')
   };
 }
