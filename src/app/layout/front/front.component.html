@@ -1,28 +1,10 @@
 <!-- ======= Header ======= -->
-<section id="topbar" class="topbar d-flex align-items-center">
+<!-- <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"><a
-                    href="mailto:info@chasemind.in">info&#64;chasemind.in</a></i>
-            <!-- <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i> -->
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-            <a href="javascript:void(0);" class="skype">
-                <i class="bi bi-skype"></i>
-            </a>
-            <a href="https://www.facebook.com/people/Chasemind-Solution" class="facebook" target="_blank">
-                <i class="bi bi-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/chasemindsolution/" class="instagram" target="_blank">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/chasemind-solution-private-limited" class="linkedin"
-                target="_blank">
-                <i class="bi bi-linkedin"></i>
-            </a>
-        </div>
+      
     </div>
-</section><!-- End Top Bar -->
+</section> -->
+<!-- End Top Bar -->
 
 <header id="header" class="header d-flex align-items-center">
 
@@ -30,11 +12,11 @@
         <a href="/" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="../../../assets/img/logo2.png" alt=""> -->
-            <!-- <img src="/src/assets/img/logo/white-logo.jpeg"> -->
+            <img src="../../../assets/img/logo/white_logo.png">
 
-            <h1>
+            <!-- <h1>
                 CHASEMIND<span>.</span>
-            </h1>
+            </h1> -->
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -42,7 +24,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#team">Team</a></li>
+                <!-- <li><a href="#team">Team</a></li> -->
                 <!-- <li><a href="blog.html">Blog</a></li> -->
                 <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -76,6 +58,9 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero">
+    <div class="shape-left">
+        <img src="https://validthemes.net/site-template/sasoft/assets/img/shape/17.png" alt="Shape">
+    </div>
     <div class="slider">
         <div class="container position-relative">
             <div class="row gy-5" data-aos="fade-in">
@@ -93,7 +78,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <img src="../../../assets/img/slider.png" class="img-fluid" alt="" data-aos="zoom-out"
+                    <img src="../../../assets/img/slider.png" class="img-fluid slider" alt="" data-aos="zoom-out"
                         data-aos-delay="100">
                 </div>
             </div>
@@ -177,7 +162,7 @@
                         needs, ensure smooth communication with daily/weekly reporting.</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="content ps-0 ps-lg-5">
+                    <div class="content ps-0 ps-lg-5 mb-4">
                         <!-- <p class="fst-italic">
                                 Chasemind Solution has pioneered IT services in India, consistently delivering business
                                 value with the latest technology.
@@ -190,10 +175,22 @@
                             <li><i class="bi bi-check-circle-fill"></i> We have a proven process to help you move
                                 your business forward and we’re with you every step of the way.</li>
                         </ul>
-                        <div class="position-relative mt-4">
-                            <img src="../../../assets/img/about-1.png" class="img-fluid rounded-4" alt="">
+                        <div class="position-relative">
+                            <img src="../../../assets/img/about-1.svg" class="img-fluid rounded-4 mb-4" alt="">
                             <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a> -->
                         </div>
+                    </div>
+                    <div>
+                        <p class="about-us-p">
+                            Our mission is to deliver top-notch IT solutions that empower businesses to thrive in the digital age.
+                             We strive to provide exceptional service, leveraging the latest technologies to create efficient, secure, 
+                             and scalable systems for our clients.
+                        </p>
+                        <p>
+                            Our expert team combines technical excellence with a customer-centric approach, ensuring tailored solutions
+                             that meet the unique needs of each client. With a focus on integrity, innovation, and excellence, we strive 
+                            to be your trusted partner in navigating the digital landscape and achieving your business goals.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -305,6 +302,12 @@
                         <p><strong>Cups of Coffees</strong> </p>
                     </div><!-- End Stats Item -->
 
+                    <div class="stats-item d-flex align-items-center">
+                        <span data-purecounter-start="0" data-purecounter-end="1586" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                        <span class="plus-span">+</span>
+                        <p><strong>Hours Of Support</strong> </p>
+                    </div><!-- End Stats Item -->
                 </div>
 
             </div>
@@ -518,24 +521,21 @@
 
             <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
                 data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
-                <!-- 
+                
                     <div>
                         <ul class="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-product">Product</li>
-                            <li data-filter=".filter-branding">Branding</li>
-                            <li data-filter=".filter-books">Books</li>
+                            <li data-filter=".filter-books">Websites</li>
                         </ul>
-                    </div> -->
+                    </div>
 
                 <div class="row gy-4 portfolio-container">
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="javascript:void(0);" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="../../../assets/img/portfolio/IAHC.png" class="img-fluid"
-                                    alt=""></a>
+                            <a href="javascript:void(0);" data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                    src="../../../assets/img/portfolio/IAHC.png" class="img-fluid" alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">IAHC</a></h4>
                                 <p>
@@ -586,7 +586,7 @@
 
         </div>
     </section><!-- End Portfolio Section -->
-
+    <!-- 
     <section id="team" class="team">
         <div class="container" data-aos="fade-up">
 
@@ -605,14 +605,8 @@
                         <img src="assets/img/team/no-image.jpg" class="img-fluid" alt="">
                         <h4>Vijay Soni</h4>
                         <span>Managing Director</span>
-                        <!-- <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div> -->
                     </div>
-                </div><!-- End Team Member -->
+                </div>
 
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                     <div class="member">
@@ -620,27 +614,17 @@
                         <h4>Ajay Patel</h4>
                         <span>Managing Director</span>
                         <div class="social">
-                            <!-- <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a> -->
                         </div>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
 
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                     <div class="member">
                         <img src="assets/img/team/no-image-f.jpg" class="img-fluid" alt="">
                         <h4>Sweety Soni</h4>
                         <span>BDE</span>
-                        <!-- <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div> -->
                     </div>
-                </div><!-- End Team Member -->
+                </div>
 
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
@@ -648,39 +632,40 @@
                         <h4>Damini Patel</h4>
                         <span>MEAN Stack Developer</span>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
                         <img src="assets/img/team/no-image-f.jpg" class="img-fluid" alt="">
                         <h4>Roshani Sardhara</h4>
                         <span>.Net Developer</span>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
                         <img src="assets/img/team/no-image.jpg" class="img-fluid" alt="">
                         <h4>Anjan Zinzuwadia</h4>
                         <span>MEAN Stack Developer</span>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
                         <img src="assets/img/team/no-image.jpg" class="img-fluid" alt="">
                         <h4>Harshad </h4>
                         <span>Flutter App Developer</span>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
                         <img src="assets/img/team/no-image.jpg" class="img-fluid" alt="">
                         <h4>Pratham Adeshara</h4>
                         <span>MERN Stack Developer</span>
                     </div>
-                </div><!-- End Team Member -->
+                </div>
             </div>
 
         </div>
-    </section><!-- End Our Team Section -->
+    </section> -->
+    <!-- End Our Team Section -->
 
     <!-- ======= Pricing Section ======= -->
     <!-- <section id="pricing" class="pricing sections-bg">
@@ -769,14 +754,13 @@
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
                 <a href="/" class="logo d-flex align-items-center">
-                    <span>CHASEMIND</span>
-                    <!-- <img src="/src/assets/img/logo/white-logo.jpeg"> -->
+                    <img src="../../../assets/img/logo/white_logo.png">
                 </a>
                 <p>We are dedicated to delivering innovative solutions and exceptional
                     service. Our team of experts is committed to helping you achieve your goals with quality and
                     reliability. Discover how we can make a difference for you.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#" class="skype">
+                    <a href="skype:live:.cid.760e3278191aa729?chat" class="skype" target="_blank">
                         <i class="bi bi-skype"></i>
                     </a>
                     <a href="https://www.facebook.com/people/Chasemind-Solution" class="facebook" target="_blank">

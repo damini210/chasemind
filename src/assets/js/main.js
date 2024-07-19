@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  "use strict";
+  'use strict';
 
   /**
    * Preloader
@@ -13,58 +13,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // UPDATE: I was able to get this working again... Enjoy!
 
-var cursor = document.querySelector('.cursor');
-var cursorinner = document.querySelector('.cursor2');
-var a = document.querySelectorAll('a');
+  var cursor = document.querySelector('.cursor');
+  var cursorinner = document.querySelector('.cursor2');
+  var a = document.querySelectorAll('a');
 
-document.addEventListener('mousemove', function(e){
-  var x = e.clientX;
-  var y = e.clientY;
-  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
-});
+  // if (cursor != null && cursorinner != null && cursor.length > 0 && cursorinner.length > 0) {
+    document.addEventListener('mousemove', function (e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+    });
 
-document.addEventListener('mousemove', function(e){
-  var x = e.clientX;
-  var y = e.clientY;
-  cursorinner.style.left = x + 'px';
-  cursorinner.style.top = y + 'px';
-});
+    document.addEventListener('mousemove', function (e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      cursorinner.style.left = x + 'px';
+      cursorinner.style.top = y + 'px';
+    });
 
-document.addEventListener('mousedown', function(){
-  cursor.classList.add('click');
-  cursorinner.classList.add('cursorinnerhover')
-});
+    // document.addEventListener('mousedown', function () {
+    //   cursor.classList.add('click');
+    //   cursorinner.classList.add('cursorinnerhover');
+    // });
 
-document.addEventListener('mouseup', function(){
-  cursor.classList.remove('click')
-  cursorinner.classList.remove('cursorinnerhover')
-});
+    // document.addEventListener('mouseup', function () {
+    //   cursor.classList.remove('click');
+    //   cursorinner.classList.remove('cursorinnerhover');
+    // });
 
-a.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
+    a.forEach((item) => {
+      item.addEventListener('mouseover', () => {
+        cursor.style.display = "none";
+        cursorinner.style.display = "none";
+      });
+      item.addEventListener('mouseleave', () => {
+        cursor.style.display = "block";
+        cursorinner.style.display = "block";
+      });
+    });
+  // }
+
   /**
    * Sticky Header on Scroll
    */
   const selectHeader = document.querySelector('#header');
   if (selectHeader) {
-    let headerOffset = selectHeader.offsetTop;
+    let headerOffset = 0;
     let nextElement = selectHeader.nextElementSibling;
-
     const headerFixed = () => {
-      if ((headerOffset - window.scrollY) <= 0) {
+      if (headerOffset - window.scrollY < 0) {
         selectHeader.classList.add('sticked');
         if (nextElement) nextElement.classList.add('sticked-header-offset');
       } else {
         selectHeader.classList.remove('sticked');
         if (nextElement) nextElement.classList.remove('sticked-header-offset');
       }
-    }
+    };
     window.addEventListener('load', headerFixed);
     document.addEventListener('scroll', headerFixed);
   }
@@ -75,8 +79,7 @@ a.forEach(item => {
   let navbarlinks = document.querySelectorAll('#navbar a');
 
   function navbarlinksActive() {
-    navbarlinks.forEach(navbarlink => {
-
+    navbarlinks.forEach((navbarlink) => {
       if (!navbarlink.hash) return;
 
       let section = document.querySelector(navbarlink.hash);
@@ -84,12 +87,12 @@ a.forEach(item => {
 
       let position = window.scrollY + 200;
 
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+      if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
         navbarlink.classList.add('active');
       } else {
         navbarlink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navbarlinksActive);
   document.addEventListener('scroll', navbarlinksActive);
@@ -100,11 +103,11 @@ a.forEach(item => {
   const mobileNavShow = document.querySelector('.mobile-nav-show');
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
 
-  document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function(event) {
+  document.querySelectorAll('.mobile-nav-toggle').forEach((el) => {
+    el.addEventListener('click', function (event) {
       event.preventDefault();
       mobileNavToogle();
-    })
+    });
   });
 
   function mobileNavToogle() {
@@ -116,8 +119,7 @@ a.forEach(item => {
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navbar a').forEach(navbarlink => {
-
+  document.querySelectorAll('#navbar a').forEach((navbarlink) => {
     if (!navbarlink.hash) return;
 
     let section = document.querySelector(navbarlink.hash);
@@ -128,7 +130,6 @@ a.forEach(item => {
         mobileNavToogle();
       }
     });
-
   });
 
   /**
@@ -136,8 +137,8 @@ a.forEach(item => {
    */
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
-  navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+  navDropdowns.forEach((el) => {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -147,7 +148,7 @@ a.forEach(item => {
         dropDownIndicator.classList.toggle('bi-chevron-up');
         dropDownIndicator.classList.toggle('bi-chevron-down');
       }
-    })
+    });
   });
 
   /**
@@ -162,15 +163,18 @@ a.forEach(item => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
+    };
     window.addEventListener('load', togglescrollTop);
     document.addEventListener('scroll', togglescrollTop);
-    scrollTop.addEventListener('click', window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    }));
+    scrollTop.addEventListener(
+      'click',
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    );
   }
 
   /**
@@ -232,7 +236,7 @@ a.forEach(item => {
     },
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-prev'
     }
   });
 
@@ -254,7 +258,7 @@ a.forEach(item => {
     },
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-prev'
     },
     breakpoints: {
       320: {
@@ -263,7 +267,7 @@ a.forEach(item => {
       },
 
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 3
       }
     }
   });
@@ -274,10 +278,15 @@ a.forEach(item => {
   let portfolionIsotope = document.querySelector('.portfolio-isotope');
 
   if (portfolionIsotope) {
-
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter')
+      ? portfolionIsotope.getAttribute('data-portfolio-filter')
+      : '*';
+    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout')
+      ? portfolionIsotope.getAttribute('data-portfolio-layout')
+      : 'masonry';
+    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort')
+      ? portfolionIsotope.getAttribute('data-portfolio-sort')
+      : 'original-order';
 
     window.addEventListener('load', () => {
       let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
@@ -288,21 +297,23 @@ a.forEach(item => {
       });
 
       let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
-      menuFilters.forEach(function(el) {
-        el.addEventListener('click', function() {
-          document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
-          this.classList.add('filter-active');
-          portfolioIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          if (typeof aos_init === 'function') {
-            aos_init();
-          }
-        }, false);
+      menuFilters.forEach(function (el) {
+        el.addEventListener(
+          'click',
+          function () {
+            document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
+            this.classList.add('filter-active');
+            portfolioIsotope.arrange({
+              filter: this.getAttribute('data-filter')
+            });
+            if (typeof aos_init === 'function') {
+              aos_init();
+            }
+          },
+          false
+        );
       });
-
     });
-
   }
 
   /**
@@ -319,5 +330,4 @@ a.forEach(item => {
   window.addEventListener('load', () => {
     aos_init();
   });
-
 });

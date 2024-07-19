@@ -8,7 +8,7 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #008374;
+  --color-primary: #00aeef;
   --color-secondary: #005578;
 }
 
@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-  color: #00b6a1;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -174,7 +174,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #007aff;
+  background: var(--color-primary);
   color: #fff;
 }
 
@@ -335,6 +335,9 @@ section {
   margin-top: 70px;
 }
 
+.slider {
+  margin-top: 20px;
+}
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
@@ -612,10 +615,8 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
-.stats-counter,
 .services,
-.portfolio,
-.contact {
+.portfolio {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -632,14 +633,14 @@ section {
   height: 100%;
   /* background-position: center;  */
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   text-align: justify;
-
+  display: inline-table;
 }
 
 .about,
 .testimonials,
-.team {
+.team, .contact {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -656,9 +657,9 @@ section {
   height: 100%;
   /* background-position: center;  */
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   text-align: justify;
-
+  display: inline-table;
 }
 
 .about h3 {
@@ -791,11 +792,15 @@ section {
   }
 }
 
+.about-us-p {
+  margin-top: 25px;
+}
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
 .clients {
   padding: 40px 0;
+  background-color: aliceblue;
 }
 
 .clients .swiper {
@@ -1073,7 +1078,7 @@ section {
 }
 
 .services .service-item:hover .icon:before {
-  background: #00b6a1;
+  background: var(--color-primary);
 }
 
 .services .service-item:hover h3 {
@@ -1928,7 +1933,7 @@ section {
 }
 
 .contact .email-form button[type=submit]:hover {
-  background: rgba(0, 131, 116, 0.8);
+  background: var(--color-secondary);
 }
 
 @keyframes animate-loading {
@@ -1947,24 +1952,83 @@ section {
 .hero {
   width: 100%;
   position: relative;
-  /* background: #00aeef; */
   padding: 0;
   overflow: hidden;
-  /* display: flex; */
   align-items: center;
   min-height: 348px;
   background: url(../img/background/bg-1.png);
   background-repeat: no-repeat;
   background-attachment: scroll !important;
-
-  /* Arranging the image */
   height: 100%;
-  /* background-position: center;  */
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   text-align: justify;
+  display: inline-table;
+}
+
+.shape-left {
+  position: absolute;
+  left: 120px;
+  bottom: 55%;
+  -webkit-animation: moving linear infinite 5s;
+  animation: moving linear infinite 5s;
+}
+
+.shape-left img {
+  width: 150px;
+}
+
+
+/* Mooving Animation */
+
+@-webkit-keyframes moving {
+  0% {
+  -webkit-transform: translate(0px,  0px);
+  transform: translate(0px,  0px);
+  }
+  20% {
+      -webkit-transform: translate(0px,  -30px);
+      transform: translate(0px,  -30px);
+  }
+  50% {
+      -webkit-transform: translate(-50px,  -30px);
+      transform: translate(-50px,  -30px);
+  }
+  70% {
+      -webkit-transform: translate(-50px,  0px);
+      transform: translate(-50px,  0px);
+  }
+  100% {
+      -webkit-transform: translate(0px,  0px);
+      transform: translate(0px,  0px);
+  }
 
 }
+
+@keyframes moving {
+0% {
+    -webkit-transform: translate(0px,  0px);
+    transform: translate(0px,  0px);
+}
+20% {
+    -webkit-transform: translate(0px,  -30px);
+    transform: translate(0px,  -30px);
+}
+50% {
+    -webkit-transform: translate(-50px,  -30px);
+    transform: translate(-50px,  -30px);
+}
+70% {
+    -webkit-transform: translate(-50px,  0px);
+    transform: translate(-50px,  0px);
+}
+100% {
+    -webkit-transform: translate(0px,  0px);
+    transform: translate(0px,  0px);
+}
+
+}
+
 
 @media (min-width: 1365px) {
   .hero {
