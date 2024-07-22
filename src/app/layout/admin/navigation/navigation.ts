@@ -24,6 +24,14 @@ const NavigationItems = [
     icon: 'icon-navigation',
     children: [
       {
+        id: 'portfolios',
+        title: 'Portfolios',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'portfolios',
+        icon: 'bi bi-bag-check-fill'
+      },
+      {
         id: 'testimonials',
         title: 'Testimonials',
         type: 'item',

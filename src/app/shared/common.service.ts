@@ -3,12 +3,10 @@ import { HttpClient } from '@angular/common/http'
 import { NotifierService } from 'angular-notifier';
 import { environment } from './../../environments/environment';
 
-declare var google: any;
-
 @Injectable()
 export class CommonService {
 
-  rootData: any = {};
+  rootData: any = {}
   readonly notifier: NotifierService;
 
  

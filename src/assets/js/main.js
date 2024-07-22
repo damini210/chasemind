@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var cursorinner = document.querySelector('.cursor2');
   var a = document.querySelectorAll('a');
 
-  // if (cursor != null && cursorinner != null && cursor.length > 0 && cursorinner.length > 0) {
+  if (cursor != null && cursorinner != null && cursor.length > 0 && cursorinner.length > 0) {
     document.addEventListener('mousemove', function (e) {
       var x = e.clientX;
       var y = e.clientY;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorinner.style.display = "block";
       });
     });
-  // }
+  }
 
   /**
    * Sticky Header on Scroll

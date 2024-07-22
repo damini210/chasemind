@@ -6,6 +6,15 @@ const routes: Routes = [
     path: '',
     children: [
       {
+        path: 'portfolios',
+        loadComponent: () => import('../../admin/portfolios/portfolios.component')
+      },
+    ]
+  },
+  {
+    path: '',
+    children: [
+      {
         path: 'testimonials',
         loadComponent: () => import('../../admin/testimonials/testimonials.component')
       },
