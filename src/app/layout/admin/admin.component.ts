@@ -5,7 +5,7 @@ import { Location, LocationStrategy } from '@angular/common';
 // Project import
 import { ChasemindConfig } from '../../app-config';
 import { StorageService, StorageKey } from 'src/app/shared/storage.service';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 

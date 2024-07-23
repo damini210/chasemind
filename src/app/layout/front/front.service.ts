@@ -19,12 +19,11 @@ export class FrontService {
         return this.http.post(this.commonService.rootData.rootUrl + 'contact/create', saveContactMasterData, { headers: headers });
     }
 
-    getContactMaster() {
-        let headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('myToken')}`
-        })
-        return this.http.get(this.commonService.rootData.rootUrl + 'contact/get-contantDataList', { headers: headers });
+    getPortfolioList() {
+        // let headers = new HttpHeaders({
+        //     'Content-Type': 'application/json',
+        //     'Authorization': `Bearer ${localStorage.getItem('myToken')}`
+        // })
+        return this.http.get(this.commonService.rootData.rootUrl + 'portfolio/get-portfolioFrontList');
     }
-
 }

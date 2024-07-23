@@ -50,7 +50,6 @@ export default class PortfoliosComponent {
   }
 
   getPortfolioList() {
-    debugger;
     this.adminService.getPortfolioMaster().subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.portfolioMasterList = new MatTableDataSource(Response.data);
@@ -90,6 +89,7 @@ export default class PortfoliosComponent {
         this.submittedPortfolioData = false;
         this.closeModal();
         this.imageUrl = null;
+        this.getPortfolioList();
       }
       else {
         this.commonService.notifier.notify('error', Response.meta.message);
@@ -116,6 +116,7 @@ export default class PortfoliosComponent {
           this.imageUrl = "";
           this.file = "";
         }
+        this.getPortfolioList();
       }, (error) => {
         this.commonService.notifier.notify('error', error.error.Message);
       });

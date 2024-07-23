@@ -7,6 +7,35 @@
 
 .methodologies {
     color: white;
+    .methodologies-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    
+    .typewriter {
+      font-size: 35px !important;
+      margin-bottom: -45px;
+      padding-top: 39px;
+      color: #00aeef;
+      width: 21.5ch;
+      white-space: nowrap;
+      overflow: hidden;
+      background: linear-gradient(to right, #00AEEF 0%, #5ECFBA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text 4s steps(18) alternate infinite;
+    }
+ 
+    @keyframes text {
+      0% { 
+        width: 0; 
+      }
+      100% { 
+        width: 21.5ch; 
+      }
+    }
 }
 
 .cursor {

@@ -144,7 +144,7 @@
             <div class="modal-footer">
                 <button (click)="closeModal()" type="button" class="btn btn-secondary"
                     data-dismiss="modal">Close</button>
-                <button (click)="onSubmit()" type="button" class="btn btn-primary">Save Portfolio</button>
+                <button (click)="onSubmit()" type="button" class="btn btn-primary">{{portfolioForm.value._id ? 'Update' : 'Save'}} Portfolio</button>
             </div>
         </div>
     </div>
