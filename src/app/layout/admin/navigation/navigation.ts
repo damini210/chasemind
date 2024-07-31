@@ -28,7 +28,7 @@ const NavigationItems = [
         title: 'Portfolios',
         type: 'item',
         classes: 'nav-item',
-        url: 'portfolios',
+        url: 'admin/portfolios',
         icon: 'bi bi-bag-check-fill'
       },
       {
@@ -36,7 +36,7 @@ const NavigationItems = [
         title: 'Testimonials',
         type: 'item',
         classes: 'nav-item',
-        url: 'testimonials',
+        url: 'admin/testimonials',
         icon: 'ti ti-typography'
       },
       {
@@ -44,7 +44,7 @@ const NavigationItems = [
         title: 'Services',
         type: 'item',
         classes: 'nav-item',
-        url: 'services',
+        url: 'admin/services',
         icon: 'ti ti-typography'
       },
       {
@@ -52,7 +52,7 @@ const NavigationItems = [
         title: 'Contact Us List',
         type: 'item',
         classes: 'nav-item',
-        url: 'contact-list',
+        url: 'admin/contact-list',
         icon: 'ti ti-device-mobile'
       },
     ]

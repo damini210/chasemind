@@ -48,7 +48,7 @@ export default class LoginComponent {
         this.storageService.setValue(StorageKey.roleId, Response.data.roleId);
         this.storageService.setValue(StorageKey.accountType, Response.data.accountType);
         this.storageService.setValue(StorageKey.Issellerlogin, 'true');
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/admin/portfolios']);
         this.commonService.notifier.notify('success', Response.meta.message);
       }
       else {
