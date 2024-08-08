@@ -18,7 +18,7 @@ import { environment } from '../../../../src/environments/environment';
 })
 
 export default class PortfoliosComponent {
-  displayedColumns: string[] = ['no', 'title', 'type', 'shortDesc', 'status', 'actions'];
+  displayedColumns: string[] = ['no', 'title', 'type', 'shortDesc', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   portfolioMasterList: any;
@@ -75,14 +75,14 @@ export default class PortfoliosComponent {
       this.submittedPortfolioData = true;
       return;
     }
-    let testimonialObj: FormData = new FormData();
-    testimonialObj.append('_id', this.portfolioForm.value._id);
-    testimonialObj.append('title', this.portfolioForm.value.title);
-    testimonialObj.append('shortDesc', this.portfolioForm.value.shortDesc);
-    testimonialObj.append('type', this.portfolioForm.value.type);
-    testimonialObj.append('Image', this.file);
+    let portfolioObj: FormData = new FormData();
+    portfolioObj.append('_id', this.portfolioForm.value._id);
+    portfolioObj.append('title', this.portfolioForm.value.title);
+    portfolioObj.append('shortDesc', this.portfolioForm.value.shortDesc);
+    portfolioObj.append('type', this.portfolioForm.value.type);
+    portfolioObj.append('Image', this.file);
 
-    this.adminService.savePortfolioMaster(testimonialObj).subscribe((Response: any) => {
+    this.adminService.savePortfolioMaster(portfolioObj, this.portfolioForm.value._id).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.commonService.notifier.notify('success', Response.meta.message);
         this.portfolioForm.reset();
@@ -103,20 +103,27 @@ export default class PortfoliosComponent {
       let portfolioParams = {
         '_id': portfolioId,
       }
+      debugger;
       this.adminService.getPortfolioMasterId(portfolioParams).subscribe((Response: any) => {
-        console.log(Response.data)
-        this.portfolioForm.controls._id.setValue(Response.data._id);
-        this.portfolioForm.controls.title.setValue(Response.data.title);
-        this.portfolioForm.controls.shortDesc.setValue(Response.data.shortDesc);
-        this.portfolioForm.controls.type.setValue(Response.data.type);
-        if (Response.data.Image != "") {
-          this.imageUrl = environment.uploadsUrl + "photos/" + Response.data.Image;
-          this.file = Response.data.Image;
-        } else {
-          this.imageUrl = "";
-          this.file = "";
+        if (Response.meta.code == 200) {
+          this.portfolioForm.controls._id.setValue(Response.data._id);
+          this.portfolioForm.controls.title.setValue(Response.data.title);
+          this.portfolioForm.controls.shortDesc.setValue(Response.data.shortDesc);
+          this.portfolioForm.controls.type.setValue(Response.data.type);
+
+          if (Response.data.Image != "") {
+            this.imageUrl = environment.uploadsUrl + "photos/" + Response.data.Image;
+
+            this.file = Response.data.Image;
+          } else {
+            this.imageUrl = "";
+            this.file = "";
+          }
+          this.getPortfolioList();
         }
-        this.getPortfolioList();
+        else {
+          this.commonService.notifier.notify('error', Response.meta.message);
+        }
       }, (error) => {
         this.commonService.notifier.notify('error', error.error.Message);
       });
@@ -129,6 +136,7 @@ export default class PortfoliosComponent {
     this.submittedPortfolioData = false;
     this.img_validate = false;
     this.file = null;
+    this.imageUrl = null;
     $('#portfolioModal').modal('hide')
   };
 

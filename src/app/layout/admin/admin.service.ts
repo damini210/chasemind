@@ -34,7 +34,7 @@ export class AdminService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.post(this.commonService.rootData.rootUrl + 'contact/create', saveContactMasterData, { headers: headers });
+        return this.http.post(this.commonService.rootData.rootUrl + 'contacts', saveContactMasterData, { headers: headers });
     }
 
     getContactMaster() {
@@ -42,15 +42,20 @@ export class AdminService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.get(this.commonService.rootData.rootUrl + 'contact/get-contactDataList', { headers: headers });
+        return this.http.get(this.commonService.rootData.rootUrl + 'contacts', { headers: headers });
     }
 
     //portfolio API
-    savePortfolioMaster(createPortfolioMasterData: any) {
+    savePortfolioMaster(createPortfolioMasterData: any, id) {
         let headers = new HttpHeaders({
+            // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.post(this.commonService.rootData.rootUrl + 'portfolio/portfolio-create-update', createPortfolioMasterData, { headers: headers });
+        if (id) {
+            return this.http.put(this.commonService.rootData.rootUrl + 'portfolio/' + id, createPortfolioMasterData, { headers: headers });
+        } else {
+            return this.http.post(this.commonService.rootData.rootUrl + 'portfolios', createPortfolioMasterData, { headers: headers });
+        }
     }
 
     getPortfolioMaster() {
@@ -58,7 +63,7 @@ export class AdminService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.get(this.commonService.rootData.rootUrl + 'portfolio/portfolio-List', { headers: headers });
+        return this.http.get(this.commonService.rootData.rootUrl + 'portfolios', { headers: headers });
     }
 
     getPortfolioMasterId(params: any) {
@@ -66,15 +71,15 @@ export class AdminService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.get(this.commonService.rootData.rootUrl + 'portfolio/portfolio-detailsById', { params: params, headers: headers });
+        return this.http.get(this.commonService.rootData.rootUrl + 'portfolio/' + params._id, {headers: headers});
     }
 
-    statusPortfolio(updatestatusblogData: any) {
+    statusPortfolio(updatestatusData: any) {
         let headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('myAdminToken')}`
+            'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.post(this.commonService.rootData.rootUrl + 'portfolio/portfolio-statusActiveDeactive', updatestatusblogData, { headers: headers });
+        return this.http.patch(this.commonService.rootData.rootUrl + 'portfolio/' + updatestatusData._id + '/status', updatestatusData, { headers: headers });
     }
 
 }

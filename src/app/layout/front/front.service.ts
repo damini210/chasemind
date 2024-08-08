@@ -16,14 +16,10 @@ export class FrontService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('myToken')}`
         })
-        return this.http.post(this.commonService.rootData.rootUrl + 'contact/create', saveContactMasterData, { headers: headers });
+        return this.http.post(this.commonService.rootData.rootUrl + 'contacts', saveContactMasterData, { headers: headers });
     }
 
     getPortfolioList() {
-        // let headers = new HttpHeaders({
-        //     'Content-Type': 'application/json',
-        //     'Authorization': `Bearer ${localStorage.getItem('myToken')}`
-        // })
-        return this.http.get(this.commonService.rootData.rootUrl + 'portfolio/get-portfolioFrontList');
+        return this.http.get(this.commonService.rootData.rootUrl + 'portfolios');
     }
 }

@@ -40,14 +40,10 @@ export default class LoginComponent {
     this.loginService.adminLogin(loginObj).subscribe((Response: any) => {
 
       if (Response.meta.code == 200) {
-        this.storageService.setValue(StorageKey.myToken, Response.data.myToken);
-        this.storageService.setValue(StorageKey._id, Response.data._id);
-        this.storageService.setValue(StorageKey.Name, Response.data.fullName);
-        this.storageService.setValue(StorageKey.email, Response.data.email);
-        this.storageService.setValue(StorageKey.profileImage, Response.data.profile_image);
-        this.storageService.setValue(StorageKey.roleId, Response.data.roleId);
-        this.storageService.setValue(StorageKey.accountType, Response.data.accountType);
-        this.storageService.setValue(StorageKey.Issellerlogin, 'true');
+        this.storageService.setValue(StorageKey.myToken, Response.data.token);
+        this.storageService.setValue(StorageKey._id, Response.data.user._id);
+        this.storageService.setValue(StorageKey.Name, Response.data.user.name);
+        this.storageService.setValue(StorageKey.email, Response.data.user.email);
         this.router.navigate(['/admin/portfolios']);
         this.commonService.notifier.notify('success', Response.meta.message);
       }
