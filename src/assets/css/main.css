@@ -274,6 +274,47 @@ section {
   .topbar .contact-info i span {
     font-size: 13px;
   }
+
+  .hero {
+    background: none !important;
+    padding: 0 10px !important;
+  }
+
+  .services, .portfolio {
+    background: unset !important;
+  }
+
+  .hero .icon-boxes {
+    padding-bottom: 20px !important;
+  }
+
+  .footer, .hero .icon-box,
+  .services .service-item, .portfolio, .contact {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .services .service-item {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  section {
+    padding: 20px 0 !important;
+  }
+
+  .about {
+    padding: 0 10px !important;
+  }
+
+  .stats-counter .stats-item {
+    justify-content: center !important;
+  }
+
+  .services,
+  .portfolio {
+    width: unset !important;
+  }
 }
 
 .topbar .contact-info i a {
@@ -338,6 +379,7 @@ section {
 .slider {
   margin-top: 20px;
 }
+
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
@@ -615,8 +657,7 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
-.services,
-.portfolio {
+.services {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -635,12 +676,28 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   text-align: justify;
-  display: inline-table;
+  /* display: inline-table; */
+}
+
+.portfolio {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  min-height: 348px;
+  background: url(../img/background/bg-3.png);
+  background-repeat: no-repeat;
+  background-attachment: scroll !important;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: justify;
 }
 
 .about,
 .testimonials,
-.team, .contact {
+.team,
+.contact {
   width: 100%;
   position: relative;
   /* background: #00aeef; */
@@ -659,7 +716,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   text-align: justify;
-  display: inline-table;
+  /* display: inline-table; */
 }
 
 .about h3 {
@@ -795,6 +852,7 @@ section {
 .about-us-p {
   margin-top: 25px;
 }
+
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
@@ -1269,7 +1327,6 @@ section {
   color: #6c757d;
   font-size: 14px;
   margin-bottom: 0;
-  padding-right: 50px;
 }
 
 .portfolio .portfolio-wrap:hover img {
@@ -1983,49 +2040,57 @@ section {
 
 @-webkit-keyframes moving {
   0% {
-  -webkit-transform: translate(0px,  0px);
-  transform: translate(0px,  0px);
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
   }
+
   20% {
-      -webkit-transform: translate(0px,  -30px);
-      transform: translate(0px,  -30px);
+    -webkit-transform: translate(0px, -30px);
+    transform: translate(0px, -30px);
   }
+
   50% {
-      -webkit-transform: translate(-50px,  -30px);
-      transform: translate(-50px,  -30px);
+    -webkit-transform: translate(-50px, -30px);
+    transform: translate(-50px, -30px);
   }
+
   70% {
-      -webkit-transform: translate(-50px,  0px);
-      transform: translate(-50px,  0px);
+    -webkit-transform: translate(-50px, 0px);
+    transform: translate(-50px, 0px);
   }
+
   100% {
-      -webkit-transform: translate(0px,  0px);
-      transform: translate(0px,  0px);
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
   }
 
 }
 
 @keyframes moving {
-0% {
-    -webkit-transform: translate(0px,  0px);
-    transform: translate(0px,  0px);
-}
-20% {
-    -webkit-transform: translate(0px,  -30px);
-    transform: translate(0px,  -30px);
-}
-50% {
-    -webkit-transform: translate(-50px,  -30px);
-    transform: translate(-50px,  -30px);
-}
-70% {
-    -webkit-transform: translate(-50px,  0px);
-    transform: translate(-50px,  0px);
-}
-100% {
-    -webkit-transform: translate(0px,  0px);
-    transform: translate(0px,  0px);
-}
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  20% {
+    -webkit-transform: translate(0px, -30px);
+    transform: translate(0px, -30px);
+  }
+
+  50% {
+    -webkit-transform: translate(-50px, -30px);
+    transform: translate(-50px, -30px);
+  }
+
+  70% {
+    -webkit-transform: translate(-50px, 0px);
+    transform: translate(-50px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
 
 }
 
