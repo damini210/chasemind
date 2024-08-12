@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
         path: 'portfolios',
         loadComponent: () => import('../../admin/portfolios/portfolios.component')
       },
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -18,7 +20,8 @@ const routes: Routes = [
         path: 'testimonials',
         loadComponent: () => import('../../admin/testimonials/testimonials.component')
       },
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -27,7 +30,8 @@ const routes: Routes = [
         path: 'services',
         loadComponent: () => import('../../admin/services/services.component')
       },
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -36,7 +40,8 @@ const routes: Routes = [
         path: 'contact-list',
         loadComponent: () => import('../../admin/contact-list/contact-list.component')
       },
-    ]
+    ],
+    canActivate: [AuthGuard]
   }
 ];
 

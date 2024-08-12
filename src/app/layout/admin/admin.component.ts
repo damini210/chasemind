@@ -8,7 +8,7 @@ import { StorageService, StorageKey } from 'src/app/shared/storage.service';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-
+3
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -30,7 +30,6 @@ export class AdminComponent {
     private http: HttpClient
   ) {
     this.chasemindConfig = ChasemindConfig;
-    // this.tokenCheck();
     let current_url = this.location.path();
     const baseHref = this.locationStrategy.getBaseHref();
     if (baseHref) {
@@ -55,31 +54,5 @@ export class AdminComponent {
     } else {
       this.navCollapsedMob = !this.navCollapsedMob;
     }
-  }
-
-  tokenCheck() {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('myToken')}`
-    })
-    this.http.get(this.commonService.rootData.rootUrl + 'adminAuth/tokenCheck', { headers: headers }).subscribe((Response: any) => {
-      if (Response.meta.code == 200) {
-
-      } else {
-        this.storageService.removeValue(StorageKey.myToken);
-        this.storageService.removeValue(StorageKey._id);
-        this.storageService.removeValue(StorageKey.Name);
-        this.storageService.removeValue(StorageKey.email);
-        this.router.navigate(['/admin/login']);
-      }
-    }, (error) => {
-      this.storageService.removeValue(StorageKey.myToken);
-      this.storageService.removeValue(StorageKey._id);
-      this.storageService.removeValue(StorageKey.Name);
-      this.storageService.removeValue(StorageKey.email);
-      this.router.navigate(['/admin/login']);
-      console.log(error);
-    })
-
   }
 }
