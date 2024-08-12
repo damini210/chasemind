@@ -8,7 +8,6 @@ import { StorageService, StorageKey } from 'src/app/shared/storage.service';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-3
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
