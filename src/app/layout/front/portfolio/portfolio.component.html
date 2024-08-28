@@ -23,7 +23,7 @@
 
                 <div *ngFor="let portfolio of portfolioList" [ngClass]="['col-xl-4', 'col-md-6', 'portfolio-item', typeLists[portfolio.type]]">
                     <div class="portfolio-wrap">
-                        <a href="javascript:void(0);" data-gallery="portfolio-gallery-app" class="glightbox"><img
+                        <a href="javascript:void(0);" data-gallery="portfolio-gallery-app" class="glightbox" aria-label="Read more about portfolio"><img
                             [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']"class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="javascript:void(0);" title="More Details">{{portfolio['title']}}</a></h4>
