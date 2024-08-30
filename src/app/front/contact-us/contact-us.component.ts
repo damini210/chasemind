@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { FrontLayoutService } from '../front-layout.service';
+import { FrontLayoutService } from '../../layout/front-layout/front-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 
 @Component({

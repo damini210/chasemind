@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FrontLayoutRoutes } from './front-layout.routing';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ServicesComponent } from './services/services.component';
+import { ServicesComponent } from '../../front/services/services.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { ServicesComponent } from './services/services.component';
         // TeamListComponent,
         // FaqListComponent,
     ]
+
 })
 
 export class FrontLayoutModule { ServicesComponent }

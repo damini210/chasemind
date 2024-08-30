@@ -15,7 +15,7 @@ import { MatSort } from '@angular/material/sort';
 })
 
 
-export default class contactListComponent {
+export default class ContactListComponent {
   displayedColumns: string[] = ['no', 'name', 'email', 'subject', 'action'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -38,7 +38,6 @@ export default class contactListComponent {
         this.contactMasterList = new MatTableDataSource(Response.data);
         this.contactMasterList.paginator = this.paginator;
         this.contactMasterList.sort = this.sort;
-      } else {
       }
     }, (error) => {
       console.log(error.error.Message);

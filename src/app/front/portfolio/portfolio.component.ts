@@ -1,6 +1,6 @@
 // Angular import
 import { Component, OnInit } from '@angular/core';
-import { FrontLayoutService } from '../front-layout.service';
+import { FrontLayoutService } from '../../layout/front-layout/front-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 
