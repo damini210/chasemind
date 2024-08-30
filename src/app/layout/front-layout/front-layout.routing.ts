@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 // import { FaqListComponent } from '../../front-office/faq-list/faq-list.component';
 // import { TeamListComponent } from '../../front-office/team-list/team-list.component';
 
-export const FrontRoutes: Routes = [
+export const FrontLayoutRoutes: Routes = [
     // { path: 'home', component: HomeComponent }
  
 ];

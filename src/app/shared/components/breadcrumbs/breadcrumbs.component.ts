@@ -4,7 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 // project import
-import { NavigationItem } from '../../../layout/admin/navigation/navigation';
+import { NavigationItem } from '../../../layout/admin-layout/navigation/navigation';
 
 @Component({
   selector: 'app-breadcrumbs',

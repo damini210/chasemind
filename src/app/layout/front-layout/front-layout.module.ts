@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FrontRoutes } from './front.routing';
+import { FrontLayoutRoutes } from './front-layout.routing';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ServicesComponent } from './services/services.component';
 
@@ -10,7 +10,7 @@ import { ServicesComponent } from './services/services.component';
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(FrontRoutes),
+        RouterModule.forChild(FrontLayoutRoutes),
         FormsModule,
         ReactiveFormsModule,
         DragDropModule,
@@ -24,4 +24,4 @@ import { ServicesComponent } from './services/services.component';
     ]
 })
 
-export class FrontModule { ServicesComponent }
+export class FrontLayoutModule { ServicesComponent }

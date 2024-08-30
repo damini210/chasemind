@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { RouterModule } from '@angular/router';
-import { AdminService } from 'src/app/layout/admin/admin.service';
+import { AdminLayoutService } from 'src/app/layout/admin-layout/admin-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatTableDataSource } from '@angular/material/table';
@@ -34,7 +34,7 @@ export default class PortfoliosComponent {
   }
   constructor(
     private fb: FormBuilder,
-    public adminService: AdminService,
+    public adminLayoutService: AdminLayoutService,
     public commonService: CommonService
   ) { }
 
@@ -50,7 +50,7 @@ export default class PortfoliosComponent {
   }
 
   getPortfolioList() {
-    this.adminService.getPortfolioMaster().subscribe((Response: any) => {
+    this.adminLayoutService.getPortfolioMaster().subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.portfolioMasterList = new MatTableDataSource(Response.data);
         this.portfolioMasterList.paginator = this.paginator;
@@ -82,7 +82,7 @@ export default class PortfoliosComponent {
     portfolioObj.append('type', this.portfolioForm.value.type);
     portfolioObj.append('Image', this.file);
 
-    this.adminService.savePortfolioMaster(portfolioObj, this.portfolioForm.value._id).subscribe((Response: any) => {
+    this.adminLayoutService.savePortfolioMaster(portfolioObj, this.portfolioForm.value._id).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.commonService.notifier.notify('success', Response.meta.message);
         this.portfolioForm.reset();
@@ -104,7 +104,7 @@ export default class PortfoliosComponent {
         '_id': portfolioId,
       }
       debugger;
-      this.adminService.getPortfolioMasterId(portfolioParams).subscribe((Response: any) => {
+      this.adminLayoutService.getPortfolioMasterId(portfolioParams).subscribe((Response: any) => {
         if (Response.meta.code == 200) {
           this.portfolioForm.controls._id.setValue(Response.data._id);
           this.portfolioForm.controls.title.setValue(Response.data.title);
@@ -149,7 +149,7 @@ export default class PortfoliosComponent {
     };
 
 
-    this.adminService.statusPortfolio(statusPortfolioModelObj).subscribe((Response: any) => {
+    this.adminLayoutService.statusPortfolio(statusPortfolioModelObj).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.getPortfolioList();
         this.commonService.notifier.notify('success', Response.meta.message);

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AdminService } from '../../layout/admin/admin.service';
+import { AdminLayoutService } from '../../layout/admin-layout/admin-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import * as bootstrap from "bootstrap";
@@ -32,7 +32,7 @@ export default class TestimonialsComponent {
   get fTestimonialData() { return this.testimonialForm.controls; }
   constructor(
     private fb: FormBuilder,
-    public adminService: AdminService,
+    public adminLayoutService: AdminLayoutService,
     public commonService: CommonService
   ) { }
 
@@ -55,7 +55,7 @@ export default class TestimonialsComponent {
       return;
     }
     let testimonialObj = Object.assign({}, this.testimonialForm.getRawValue());
-    this.adminService.saveTestimonialMaster(testimonialObj).subscribe((Response: any) => {
+    this.adminLayoutService.saveTestimonialMaster(testimonialObj).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.commonService.notifier.notify('success', Response.meta.message);
         this.testimonialForm.reset();
@@ -71,7 +71,7 @@ export default class TestimonialsComponent {
 
   getTestimonialList() {
 
-    this.adminService.getTestimonnialMaster().subscribe((Response: any) => {
+    this.adminLayoutService.getTestimonnialMaster().subscribe((Response: any) => {
       console.log(Response.meta.code)
       if (Response.meta.code == 200) {
 

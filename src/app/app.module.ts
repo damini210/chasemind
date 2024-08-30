@@ -3,17 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './layout/admin/admin.component';
-import { NavigationItem } from './layout/admin/navigation/navigation';
-import { NavBarComponent } from './layout/admin/nav-bar/nav-bar.component';
-import { NavLeftComponent } from './layout/admin/nav-bar/nav-left/nav-left.component';
-import { NavRightComponent } from './layout/admin/nav-bar/nav-right/nav-right.component';
-import { NavigationComponent } from './layout/admin/navigation/navigation.component';
-import { NavLogoComponent } from './layout/admin/nav-bar/nav-logo/nav-logo.component';
-import { NavContentComponent } from './layout/admin/navigation/nav-content/nav-content.component';
-import { NavGroupComponent } from './layout/admin/navigation/nav-content/nav-group/nav-group.component';
-import { NavCollapseComponent } from './layout/admin/navigation/nav-content/nav-collapse/nav-collapse.component';
-import { NavItemComponent } from './layout/admin/navigation/nav-content/nav-item/nav-item.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { NavigationItem } from './layout/admin-layout/navigation/navigation';
+import { NavBarComponent } from './layout/admin-layout/nav-bar/nav-bar.component';
+import { NavLeftComponent } from './layout/admin-layout/nav-bar/nav-left/nav-left.component';
+import { NavRightComponent } from './layout/admin-layout/nav-bar/nav-right/nav-right.component';
+import { NavigationComponent } from './layout/admin-layout/navigation/navigation.component';
+import { NavLogoComponent } from './layout/admin-layout/nav-bar/nav-logo/nav-logo.component';
+import { NavContentComponent } from './layout/admin-layout/navigation/nav-content/nav-content.component';
+import { NavGroupComponent } from './layout/admin-layout/navigation/nav-content/nav-group/nav-group.component';
+import { NavCollapseComponent } from './layout/admin-layout/navigation/nav-content/nav-collapse/nav-collapse.component';
+import { NavItemComponent } from './layout/admin-layout/navigation/nav-content/nav-item/nav-item.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonService } from '../app/shared/common.service'
 import { NotifierModule } from 'angular-notifier';
@@ -25,7 +25,7 @@ import * as $ from 'jquery';
   ],
   declarations: [
     AppComponent,
-    AdminComponent,
+    AdminLayoutComponent,
     NavBarComponent,
     NavLeftComponent,
     NavRightComponent,

@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-admin-layout',
+  templateUrl: './admin-layout.component.html',
+  styleUrls: ['./admin-layout.component.scss']
 })
-export class AdminComponent {
+export class AdminLayoutComponent {
   // public props
   chasemindConfig;
   navCollapsed: boolean;

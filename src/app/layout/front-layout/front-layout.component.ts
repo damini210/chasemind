@@ -5,13 +5,13 @@ import { Title } from '@angular/platform-browser';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @Component({
-  selector: 'app-front',
+  selector: 'app-front-layout',
   imports: [ServicesComponent, ContactUsComponent, PortfolioComponent],
   standalone: true,
-  templateUrl: './front.component.html',
-  styleUrls: ['./front.component.scss']
+  templateUrl: './front-layout.component.html',
+  styleUrls: ['./front-layout.component.scss']
 })
-export class FrontComponent implements OnInit {
+export class FrontLayoutComponent implements OnInit {
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Welcome | Chasemind Solution Pvt. Ltd.');

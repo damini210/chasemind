@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { FrontService } from '../front.service';
+import { FrontLayoutService } from '../front-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class ContactUsComponent {
   get fContactUsData() { return this.contactUsForm.controls; }
   constructor(
     private fb: FormBuilder,
-    public frontService: FrontService,
+    public frontLayoutService: FrontLayoutService,
     public commonService: CommonService
   ) { }
 
@@ -34,7 +34,7 @@ export class ContactUsComponent {
       return;
     }
     let contactUsObj = Object.assign({}, this.contactUsForm.getRawValue());
-    this.frontService.saveContactMaster(contactUsObj).subscribe((Response: any) => {
+    this.frontLayoutService.saveContactMaster(contactUsObj).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.commonService.notifier.notify('success', Response.meta.message);
         this.contactUsForm.reset();

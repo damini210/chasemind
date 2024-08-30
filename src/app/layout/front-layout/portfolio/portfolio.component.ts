@@ -1,6 +1,6 @@
 // Angular import
 import { Component, OnInit } from '@angular/core';
-import { FrontService } from '../front.service';
+import { FrontLayoutService } from '../front-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -15,7 +15,7 @@ export class PortfolioComponent implements OnInit {
   typeLists = { 1: 'Website', 2: 'Mobile' };
 
   constructor(
-    public frontService: FrontService,
+    public frontLayoutService: FrontLayoutService,
     public commonService: CommonService
   ) { }
   
@@ -26,7 +26,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   getPortfolio() {
-    this.frontService.getPortfolioList().subscribe((Response: any) => {
+    this.frontLayoutService.getPortfolioList().subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.portfolioList = Response.data
       }

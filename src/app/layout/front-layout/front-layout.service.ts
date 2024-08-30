@@ -5,7 +5,7 @@ import { CommonService } from '../../shared/common.service';
 @Injectable({
     providedIn: 'root'
 })
-export class FrontService {
+export class FrontLayoutService {
     environment: any;
 
     constructor(private commonService: CommonService, private http: HttpClient) { }

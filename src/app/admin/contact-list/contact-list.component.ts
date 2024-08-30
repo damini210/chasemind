@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AdminService } from '../../layout/admin/admin.service';
+import { AdminLayoutService } from '../../layout/admin-layout/admin-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -23,7 +23,7 @@ export default class contactListComponent {
   contactMasterList: any;
   contactDetail= [];
   constructor(
-    public adminService: AdminService,
+    public adminLayoutService: AdminLayoutService,
     public commonService: CommonService,
   ) { }
 
@@ -33,7 +33,7 @@ export default class contactListComponent {
 
 
   getContactList() {
-    this.adminService.getContactMaster().subscribe((Response: any) => {
+    this.adminLayoutService.getContactMaster().subscribe((Response: any) => {
       if (Response.meta.code == 200) {
         this.contactMasterList = new MatTableDataSource(Response.data);
         this.contactMasterList.paginator = this.paginator;

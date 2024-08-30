@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrontComponent } from './front.component';
+import { FrontLayoutComponent } from './front-layout.component';
 
-describe('FrontComponent', () => {
-  let component: FrontComponent;
-  let fixture: ComponentFixture<FrontComponent>;
+describe('FrontLayoutComponent', () => {
+  let component: FrontLayoutComponent;
+  let fixture: ComponentFixture<FrontLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FrontComponent ]
+      declarations: [ FrontLayoutComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrontComponent);
+    fixture = TestBed.createComponent(FrontLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
