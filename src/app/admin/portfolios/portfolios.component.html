@@ -45,7 +45,7 @@
             {{ portfolio['shortDesc'] | titlecase }}
         </td>
     </ng-container>
- 
+
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>
             Action
@@ -53,9 +53,11 @@
         <td mat-cell *matCellDef="let portfolio">
             <button mat-button class="btn btn-light-secondary mr-4" (click)="openModel(portfolio['_id'])">Edit</button>
             <button *ngIf="portfolio.status == 2" mat-button class="btn mr-4"
-                (click)="changeStatus({id: portfolio['_id'], status: 1})"><i class="bi bi-x-circle-fill text-danger"></i></button>
+                (click)="changeStatus({id: portfolio['_id'], status: 1})"><i
+                    class="bi bi-x-circle-fill text-danger"></i></button>
             <button *ngIf="portfolio.status == 1" mat-button class="btn mr-4"
-                (click)="changeStatus({id: portfolio['_id'], status: 2})"><i class="bi bi-check-circle-fill text-success"></i></button>
+                (click)="changeStatus({id: portfolio['_id'], status: 2})"><i
+                    class="bi bi-check-circle-fill text-success"></i></button>
 
     </ng-container>
 
@@ -85,6 +87,14 @@
                         </div>
                     </div>
                     <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Slug</label>
+                        <div class="col-sm-8">
+                            <input formControlName="slug" type="text" class="form-control"
+                                [ngClass]="submittedPortfolioData && fPortfolioData['slug'].errors?.['required'] ? 'is-invalid': ''"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
                         <label class="col-sm-4 col-form-label">Type</label>
                         <div class="col-sm-8">
                             <div *ngFor="let key of typeKeys">
@@ -109,6 +119,30 @@
                             <textarea formControlName="shortDesc" class="form-control" id="exampleFormControlTextarea1"
                                 [ngClass]="submittedPortfolioData && fPortfolioData['shortDesc'].errors?.['required'] ? 'is-invalid': ''"
                                 rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Long Description</label>
+                        <div class="col-sm-8">
+                            <ckeditor formControlName="longDesc"></ckeditor>
+                            <div *ngIf="submittedPortfolioData && fPortfolioData['longDesc'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fPortfolioData['longDesc'].errors">
+                                    <span class="text-danger">Long Description is Required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Project Info</label>
+                        <div class="col-sm-8">
+                            <ckeditor formControlName="longDesc"></ckeditor>
+                            <div *ngIf="submittedPortfolioData && fPortfolioData['projectInfo'].errors?.['required']"
+                                class="text-right">
+                                <div *ngIf="fPortfolioData['projectInfo'].errors">
+                                    <span class="text-danger">Project Info is Required.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row mb-4">

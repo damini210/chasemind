@@ -16,9 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbDropdownModule, NgbNavModule, NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   imports: [
+    CKEditorModule, 
     MatTableModule,
     MatPaginatorModule,
     MatSort,
@@ -38,6 +40,7 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
   ],
   exports: [
+    CKEditorModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -26,7 +26,7 @@
                         <a href="javascript:void(0);" data-gallery="portfolio-gallery-app" class="glightbox" aria-label="Read more about portfolio"><img
                             [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']"class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
-                            <h4><a href="javascript:void(0);" title="More Details">{{portfolio['title']}}</a></h4>
+                            <h4><a  [routerLink] ="['/portfolios', portfolio['_id']]" title="More Details">{{portfolio['title']}}</a></h4>
                             <p>
                                 {{portfolio['shortDesc']}}    
                             </p>

@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FrontLayoutService } from '../../layout/front-layout/front-layout.service';
 import { CommonService } from 'src/app/shared/common.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule,RouterModule],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })

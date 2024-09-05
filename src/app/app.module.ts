@@ -18,6 +18,10 @@ import { SharedModule } from './shared/shared.module';
 import { CommonService } from '../app/shared/common.service'
 import { NotifierModule } from 'angular-notifier';
 import * as $ from 'jquery';
+import { FrontLayoutComponent } from './layout/front-layout/front-layout.component';
+import { FrontNavBarComponent } from './front/front-nav-bar/front-nav-bar.component';
+import { FooterComponent } from './front/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   schemas: [
@@ -26,6 +30,9 @@ import * as $ from 'jquery';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    FrontLayoutComponent,
+    FrontNavBarComponent,
+    FooterComponent,
     NavBarComponent,
     NavLeftComponent,
     NavRightComponent,
@@ -35,10 +42,10 @@ import * as $ from 'jquery';
     NavGroupComponent,
     NavItemComponent,
     NavCollapseComponent,
-
   ],
   imports: [
     BrowserModule, 
+    RouterModule,
     AppRoutingModule, 
     SharedModule, 
     BrowserAnimationsModule,

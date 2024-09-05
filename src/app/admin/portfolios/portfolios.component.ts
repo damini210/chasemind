@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { environment } from '../../../../src/environments/environment';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-portfolios',
@@ -18,7 +19,8 @@ import { environment } from '../../../../src/environments/environment';
 })
 
 export default class PortfoliosComponent {
-  displayedColumns: string[] = ['no', 'title', 'type', 'shortDesc', 'actions'];
+  public Editor = ClassicEditor;
+  displayedColumns: string[] = ['no', 'title', 'type', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   portfolioMasterList: any;
@@ -41,7 +43,10 @@ export default class PortfoliosComponent {
   portfolioForm = this.fb.group({
     _id: [''],
     title: ['', Validators.required],
+    slug: ['', Validators.required],
+    projectInfo: [''],
     shortDesc: ['', Validators.required],
+    longDesc: ['', Validators.required],
     type: ['', Validators.required],
   });
 
@@ -78,7 +83,10 @@ export default class PortfoliosComponent {
     let portfolioObj: FormData = new FormData();
     portfolioObj.append('_id', this.portfolioForm.value._id);
     portfolioObj.append('title', this.portfolioForm.value.title);
+    portfolioObj.append('slug', this.portfolioForm.value.slug);
+    portfolioObj.append('projectInfo', this.portfolioForm.value.projectInfo);
     portfolioObj.append('shortDesc', this.portfolioForm.value.shortDesc);
+    portfolioObj.append('longDesc', this.portfolioForm.value.longDesc);
     portfolioObj.append('type', this.portfolioForm.value.type);
     portfolioObj.append('Image', this.file);
 
@@ -108,7 +116,10 @@ export default class PortfoliosComponent {
         if (Response.meta.code == 200) {
           this.portfolioForm.controls._id.setValue(Response.data._id);
           this.portfolioForm.controls.title.setValue(Response.data.title);
+          this.portfolioForm.controls.slug.setValue(Response.data.slug);
+          this.portfolioForm.controls.projectInfo.setValue(Response.data.projectInfo);
           this.portfolioForm.controls.shortDesc.setValue(Response.data.shortDesc);
+          this.portfolioForm.controls.longDesc.setValue(Response.data.longDesc);
           this.portfolioForm.controls.type.setValue(Response.data.type);
 
           if (Response.data.Image != "") {

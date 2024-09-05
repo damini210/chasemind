@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { ServicesComponent } from '../../front/services/services.component';
-import { ContactUsComponent } from '../../front/contact-us/contact-us.component';
+declare const require: any;
+
+import { Component, OnInit, Renderer2  } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { PortfolioComponent } from '../../front/portfolio/portfolio.component';
-import { FrontNavBarComponent } from '../../front/front-nav-bar/front-nav-bar.component';
-import { FooterComponent } from '../../front/footer/footer.component';
 
 @Component({
   selector: 'app-front-layout',
-  imports: [ServicesComponent, ContactUsComponent, PortfolioComponent, FrontNavBarComponent, FooterComponent],
-  standalone: true,
   templateUrl: './front-layout.component.html',
   styleUrls: ['./front-layout.component.scss']
 })
-export class FrontLayoutComponent {
+export class FrontLayoutComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private renderer: Renderer2) {
     this.titleService.setTitle('Welcome | Chasemind Solution Pvt. Ltd.');
   }
 
+  ngOnInit(): void {
+    this.loadScript();
+  }
+
+  loadScript() {
+    const script = this.renderer.createElement('script');
+    script.src = 'assets/js/main.js';  // Adjust the path according to your project structure
+    script.onload = () => {
+      console.log('Script loaded successfully.');
+    };
+    script.onerror = () => {
+      console.error('Script failed to load.');
+    };
+    this.renderer.appendChild(document.body, script);
+  }
 
   scrolltoTop() {
     window.scroll({ top: 0, behavior: 'smooth' });
-    // document.querySelector('#scrolltoTop').scrolltoTop({ behavior: 'smooth', block: 'top' })
   }
 }

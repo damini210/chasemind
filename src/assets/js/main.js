@@ -1,15 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+
 
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+    const preloader = document.querySelector('#preloader');
+console.log(preloader, '111111111111111')
+
+    if (preloader) {
+      console.log('2222222222222')
+      // window.addEventListener('load', () => {
+        preloader.remove();
+      // });
+    }
+ 
 
   /**
    * Sticky Header on Scroll
@@ -285,7 +288,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mirror: false
     });
   }
-  window.addEventListener('load', () => {
+  // window.addEventListener('load', () => {
     aos_init();
-  });
-});
+  // });
