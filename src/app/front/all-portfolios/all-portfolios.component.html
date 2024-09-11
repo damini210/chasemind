@@ -7,7 +7,10 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
             <h2>Our Work Gallery</h2>
-            <p>Explore our showcase of past projects, where creativity meets innovation. From stunning web designs to robust software solutions, our portfolio demonstrates our commitment to excellence and our ability to deliver results that exceed expectations. Get inspired and envision the possibilities for your next project with us.</p>
+            <p>Explore our showcase of past projects, where creativity meets innovation. From stunning web designs to
+              robust software solutions, our portfolio demonstrates our commitment to excellence and our ability to
+              deliver results that exceed expectations. Get inspired and envision the possibilities for your next
+              project with us.</p>
           </div>
         </div>
       </div>
@@ -29,32 +32,32 @@
       <div class="row gy-4 posts-list">
 
         <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
-        data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
-        
-            <div>
-                <ul class="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
-                    <li *ngFor = "let pType of typeLists | keyvalue" [attr.data-filter]="'.'+pType.value">{{pType.value}}</li>
-                </ul>
-            </div>
+          data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 portfolio-container">
+          <div>
+            <ul class="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li *ngFor="let pType of typeLists | keyvalue" [attr.data-filter]="'.'+pType.value">{{pType.value}}</li>
+            </ul>
+          </div>
 
-            <div *ngFor="let portfolio of portfolioList" [ngClass]="['col-xl-4', 'col-md-6', 'portfolio-item', typeLists[portfolio.type]]">
-                <div class="portfolio-wrap">
-                    <a href="javascript:void(0);" class="glightbox" aria-label="Read more about portfolio"><img
-                        [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']"class="img-fluid" alt=""></a>
-                    <div class="portfolio-info">
-                        <h4><a  title="More Details">{{portfolio['title']}}</a></h4>
-                        <p>
-                            {{portfolio['shortDesc']}}    
-                        </p>
-                    </div>
+          <div class="row gy-4 portfolio-container" *ngIf="!isLoading && !errorMessage">
+            <div *ngFor="let portfolio of portfolioList"
+              [ngClass]="['col-xl-4', 'col-md-6', 'portfolio-item', typeLists[portfolio.type]]">
+              <div class="portfolio-wrap">
+                <a href="javascript:void(0);" aria-label="Read more about portfolio"><img
+                    [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']" class="img-fluid"
+                    alt=""></a>
+                <div class="portfolio-info">
+                  <h4><a title="More Details">{{portfolio['title']}}</a></h4>
+                  <p>
+                    {{portfolio['shortDesc']}}
+                  </p>
                 </div>
+              </div>
             </div><!-- End Portfolio Item -->
-        </div><!-- End Portfolio Container -->
-
-    </div>
+          </div><!-- End Portfolio Container -->
+        </div>
 
 
       </div><!-- End portfolio posts list -->

@@ -15,23 +15,38 @@ declare const $: any;
 export class AllPortfoliosComponent {
 
   typeLists = { 1: 'Website', 2: 'Mobile' };
+  portfolioList: any[] = [];
+  isLoading = true; // New loading state
+  errorMessage = ''; // New error state
+  constructor(private frontLayoutService: FrontLayoutService, public commonService: CommonService) { }
 
-  constructor(public frontLayoutService: FrontLayoutService,
-    public commonService: CommonService) {
-  }
-
-  portfolioList: any;
   ngOnInit(): void {
     document.title = 'Our Portfolios'
     this.getPortfolio();
   }
-  getPortfolio() {
-    this.frontLayoutService.getPortfolioList().subscribe((Response: any) => {
-      if (Response.meta.code == 200) {
-        this.portfolioList = Response.data
+  // getPortfolio() {
+  //   this.frontLayoutService.getPortfolioList().subscribe((Response: any) => {
+  //     if (Response.meta.code == 200) {
+  //       this.portfolioList = Response.data
+  //     }
+  //   }, (error) => {
+  //     console.log(error.error.Message);
+  //   });
+  // }
+  getPortfolio(): void {
+    this.isLoading = true; // Start loading state
+    this.frontLayoutService.getPortfolioList().subscribe(
+      (response: any) => {
+        if (response?.meta?.code === 200) {
+          this.portfolioList = response.data;
+        }
+        this.isLoading = false; // Stop loading once data is fetched
+      },
+      (error) => {
+        this.isLoading = false; // Stop loading if there is an error
+        this.errorMessage = 'Failed to load portfolio data';
+        console.error('Error fetching portfolio:', error?.error?.Message);
       }
-    }, (error) => {
-      console.log(error.error.Message);
-    });
+    );
   }
 }
