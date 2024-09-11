@@ -17,9 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": [
-              "apexcharts"
-            ],
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,10 +26,16 @@
             "assets": [
               "src/favicon.ico",
               "src/favicon.png",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/font-awesome/fonts",
+                "output": "/assets/fonts"
+              }
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/assets/css/main.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
@@ -48,7 +51,6 @@
               "node_modules/angular-notifier/styles/types/type-warning.css"
             ],
             "scripts": [
-              "src/assets/js/main.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/vendor/aos/aos.js",
               "src/assets/vendor/glightbox/js/glightbox.min.js",

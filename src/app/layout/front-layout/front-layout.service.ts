@@ -20,6 +20,6 @@ export class FrontLayoutService {
     }
 
     getPortfolioList() {
-        return this.http.get(this.commonService.rootData.rootUrl + 'portfolios');
+        return this.http.get(this.commonService.rootData.rootUrl + 'activePortfolios');
     }
 }

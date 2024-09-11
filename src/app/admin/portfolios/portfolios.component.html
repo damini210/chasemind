@@ -124,7 +124,8 @@
                     <div class="form-group row mb-4">
                         <label class="col-sm-4 col-form-label">Long Description</label>
                         <div class="col-sm-8">
-                            <ckeditor formControlName="longDesc"></ckeditor>
+                            <angular-editor id="editor1" formControlName="longDesc"></angular-editor>
+
                             <div *ngIf="submittedPortfolioData && fPortfolioData['longDesc'].errors?.['required']"
                                 class="text-right">
                                 <div *ngIf="fPortfolioData['longDesc'].errors">
@@ -136,7 +137,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-sm-4 col-form-label">Project Info</label>
                         <div class="col-sm-8">
-                            <ckeditor formControlName="longDesc"></ckeditor>
+                            <angular-editor id="editor1" formControlName="projectInfo"></angular-editor>
                             <div *ngIf="submittedPortfolioData && fPortfolioData['projectInfo'].errors?.['required']"
                                 class="text-right">
                                 <div *ngIf="fPortfolioData['projectInfo'].errors">

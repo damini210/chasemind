@@ -16,11 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbDropdownModule, NgbNavModule, NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   imports: [
-    CKEditorModule, 
     MatTableModule,
     MatPaginatorModule,
     MatSort,
@@ -38,9 +37,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     NgbCollapseModule,
     NgScrollbarModule,
     HttpClientModule,
+    AngularEditorModule
   ],
   exports: [
-    CKEditorModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -57,7 +56,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatSort, 
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AngularEditorModule
   ],
   declarations: [SpinnerComponent]
 })

@@ -6,8 +6,10 @@
 export const environment = {
   production: false,
 
-  WebAPIUrl: 'http://localhost:5001/v1/',
-  uploadsUrl: 'http://localhost:5001/uploads/',
+  // WebAPIUrl: 'http://localhost:5001/v1/',
+  // uploadsUrl: 'http://localhost:5001/uploads/',
   frontendUrl: 'http://localhost:4200/',
   backendUrl: 'http://localhost:4200/admin/',
+  WebAPIUrl: 'http://122.170.0.3:5001/v1/',
+  uploadsUrl: 'http://122.170.0.3:5001/uploads/',
 };

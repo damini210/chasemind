@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { environment } from '../../../../src/environments/environment';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-portfolios',
@@ -19,7 +19,32 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 
 export default class PortfoliosComponent {
-  public Editor = ClassicEditor;
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    minHeight: '20rem',
+    maxHeight: '20rem',
+    translate: 'no',
+    sanitize: false,
+    toolbarPosition: 'top',
+    // customClasses: [
+    //   {
+    //     name: 'quote',
+    //     class: 'quote',
+    //   },
+    //   {
+    //     name: 'redText',
+    //     class: 'redText'
+    //   },
+    //   {
+    //     name: 'titleText',
+    //     class: 'titleText',
+    //     tag: 'h1',
+    //   },
+    // ]
+  };
+
+  noData = false;
   displayedColumns: string[] = ['no', 'title', 'type', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -44,7 +69,7 @@ export default class PortfoliosComponent {
     _id: [''],
     title: ['', Validators.required],
     slug: ['', Validators.required],
-    projectInfo: [''],
+    projectInfo: ['', Validators.required],
     shortDesc: ['', Validators.required],
     longDesc: ['', Validators.required],
     type: ['', Validators.required],
@@ -111,7 +136,6 @@ export default class PortfoliosComponent {
       let portfolioParams = {
         '_id': portfolioId,
       }
-      debugger;
       this.adminLayoutService.getPortfolioMasterId(portfolioParams).subscribe((Response: any) => {
         if (Response.meta.code == 200) {
           this.portfolioForm.controls._id.setValue(Response.data._id);
@@ -166,10 +190,10 @@ export default class PortfoliosComponent {
         this.commonService.notifier.notify('success', Response.meta.message);
       }
       else {
-        this.commonService.notifier.notify('success', Response.meta.message);
+        this.commonService.notifier.notify('error', Response.meta.message);
       }
     }, (error) => {
-      console.log(error);
+      this.commonService.notifier.notify('error', 'Failed to update status. Please try again');
     });
   }
 

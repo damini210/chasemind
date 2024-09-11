@@ -2905,3 +2905,9 @@ table {
 .mr-4 {
   margin-left: 1rem;
 }
+
+.portfolio-container {
+  .portfolio-item {
+    position: unset !important;
+  }
+}
