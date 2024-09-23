@@ -55,23 +55,23 @@ export default class ServicesComponent {
       return;
     }
     let testimonialObj = Object.assign({}, this.testimonialForm.getRawValue());
-    this.adminLayoutService.saveTestimonialMaster(testimonialObj).subscribe((Response: any) => {
-      if (Response.meta.code == 200) {
-        this.commonService.notifier.notify('success', Response.meta.message);
-        this.testimonialForm.reset();
-        this.submittedTestimonialData = false;
-        this.closeModal();
-      }
-      else {
-        this.commonService.notifier.notify('error', Response.meta.message);
-      }
-    });
+    // this.adminLayoutService.saveTestimonialMaster(testimonialObj).subscribe((Response: any) => {
+    //   if (Response.meta.code == 200) {
+    //     this.commonService.notifier.notify('success', Response.meta.message);
+    //     this.testimonialForm.reset();
+    //     this.submittedTestimonialData = false;
+    //     this.closeModal();
+    //   }
+    //   else {
+    //     this.commonService.notifier.notify('error', Response.meta.message);
+    //   }
+    // });
 
   };
 
   getTestimonialList() {
 
-    this.adminLayoutService.getTestimonnialMaster().subscribe((Response: any) => {
+    this.adminLayoutService.getTestimonialMaster().subscribe((Response: any) => {
       console.log(Response.meta.code)
       if (Response.meta.code == 200) {
 

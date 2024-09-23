@@ -49,10 +49,9 @@
                     [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']" class="img-fluid"
                     alt=""></a>
                 <div class="portfolio-info">
-                  <h4><a title="More Details">{{portfolio['title']}}</a></h4>
-                  <p>
-                    {{portfolio['shortDesc']}}
-                  </p>
+                  <h4><a href="portfolios/{{portfolio['slug']}}"
+                      title="More Details">{{portfolio['title']}}</a></h4>
+                      <p class="portfolio-long-des" [innerHTML]="portfolio['longDesc'] "></p> <a href="portfolios/{{portfolio['slug']}}">read more</a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->

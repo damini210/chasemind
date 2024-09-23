@@ -21,7 +21,7 @@ export class AllPortfoliosComponent {
   constructor(private frontLayoutService: FrontLayoutService, public commonService: CommonService) { }
 
   ngOnInit(): void {
-    document.title = 'Our Portfolios'
+    document.title = 'Our Achievements in Web, Mobile, and Software Innovation | Chasemind Solution'
     this.getPortfolio();
   }
   // getPortfolio() {

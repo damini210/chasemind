@@ -22,4 +22,13 @@ export class FrontLayoutService {
     getPortfolioList() {
         return this.http.get(this.commonService.rootData.rootUrl + 'activePortfolios');
     }
+
+    getPortfolioDetails(params) {
+
+        return this.http.get(this.commonService.rootData.rootUrl + 'portfolioBySlug/' + params.slug);
+    }
+
+    getTestimonialList() {
+        return this.http.get(this.commonService.rootData.rootUrl + 'activeTestimonials');
+    }
 }

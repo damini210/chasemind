@@ -6,7 +6,7 @@ import { AllPortfoliosComponent } from 'src/app/front/all-portfolios/all-portfol
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'portfolios/:id', component: PortfolioDetailsComponent },
+  { path: 'portfolios/:slug', component: PortfolioDetailsComponent },
   { path: 'portfolios', component: AllPortfoliosComponent }
 ];
 

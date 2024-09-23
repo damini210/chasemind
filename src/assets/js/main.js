@@ -4,10 +4,8 @@
    * Preloader
    */
     const preloader = document.querySelector('#preloader');
-console.log(preloader, '111111111111111')
 
     if (preloader) {
-      console.log('2222222222222')
       // window.addEventListener('load', () => {
         preloader.remove();
       // });
@@ -198,6 +196,16 @@ console.log(preloader, '111111111111111')
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 40
+      },
+
+      1200: {
+        slidesPerView: 3
+      }
     }
   });
 

@@ -150,7 +150,7 @@
                         <label class="col-sm-4 col-form-label">Image</label>
                         <div class="col-sm-8">
                             <span class="btn btn-round btn-file bg-ffd53d">
-                                <input #featuredfile type="file" accept='image/*' class="z-index-1"
+                                <input id = "featuredfile" type="file" accept='image/*' class="z-index-1"
                                     (change)="preview($event)" />
                             </span>
                             <div *ngIf="img_validate" class="text-danger">
@@ -158,6 +158,22 @@
                             <img *ngIf="imageUrl" [src]="imageUrl" alt="Selected" />
                         </div>
                     </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-sm-4 col-form-label">Project Images</label>
+                        <div class="col-sm-8">
+                            <span class="btn btn-round btn-file bg-ffd53d">
+                                <input id = "projectImage" type="file" (change)="onFileSelected($event)" multiple>
+                            </span>
+                            <!-- Image preview section -->
+                            <div class="preview-container">
+                                <div *ngFor="let img of imagePreviews; let i = index" class="image-preview">
+                                    <img [src]="img" width="100" height="100" alt="Image preview">
+                                    <button type="button" (click)="removeImage(i)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">

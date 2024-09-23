@@ -27,21 +27,6 @@ export default class PortfoliosComponent {
     translate: 'no',
     sanitize: false,
     toolbarPosition: 'top',
-    // customClasses: [
-    //   {
-    //     name: 'quote',
-    //     class: 'quote',
-    //   },
-    //   {
-    //     name: 'redText',
-    //     class: 'redText'
-    //   },
-    //   {
-    //     name: 'titleText',
-    //     class: 'titleText',
-    //     tag: 'h1',
-    //   },
-    // ]
   };
 
   noData = false;
@@ -56,6 +41,8 @@ export default class PortfoliosComponent {
   get fPortfolioData() { return this.portfolioForm.controls; }
   file: any;
   typeLists = { 1: 'web', 2: 'mobile' };
+  selectedFiles: File[] = [];
+  imagePreviews: string[] = [];
   get typeKeys() {
     return Object.keys(this.typeLists);
   }
@@ -96,6 +83,28 @@ export default class PortfoliosComponent {
     this.portfolioMasterList.filter = filterValue.trim().toLowerCase();
   }
 
+  // Handle file selection
+  onFileSelected(event: any) {
+    const files = event.target.files;
+
+    // Loop through the files and generate previews
+    Array.from(files).forEach((file: any) => {
+      this.selectedFiles.push(file);  // Add file to the selectedFiles array
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreviews.push(e.target.result); // Add image preview
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Remove an image by index
+  removeImage(index: number) {
+    this.selectedFiles.splice(index, 1);   // Remove the file
+    this.imagePreviews.splice(index, 1);   // Remove the preview
+  }
+
+
 
   onSubmit() {
     if (this.portfolioForm.invalid || this.imageUrl == "" || !this.imageUrl) {
@@ -114,6 +123,9 @@ export default class PortfoliosComponent {
     portfolioObj.append('longDesc', this.portfolioForm.value.longDesc);
     portfolioObj.append('type', this.portfolioForm.value.type);
     portfolioObj.append('Image', this.file);
+    this.selectedFiles.forEach((file, index) => {
+      portfolioObj.append('projectImages', file); 
+    });
 
     this.adminLayoutService.savePortfolioMaster(portfolioObj, this.portfolioForm.value._id).subscribe((Response: any) => {
       if (Response.meta.code == 200) {
@@ -172,6 +184,15 @@ export default class PortfoliosComponent {
     this.img_validate = false;
     this.file = null;
     this.imageUrl = null;
+    this.imagePreviews = []
+    const input = document.querySelector('#featuredfile') as HTMLInputElement;
+    const projectImageInput = document.querySelector('#projectImage') as HTMLInputElement;
+    if (input) {
+      input.value = ''; // Clear the input field
+    }
+    if (projectImageInput) {
+      projectImageInput.value = ''; // Clear the input field
+    }
     $('#portfolioModal').modal('hide')
   };
 

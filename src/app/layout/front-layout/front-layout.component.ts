@@ -1,6 +1,6 @@
 declare const require: any;
 
-import { Component, OnInit, Renderer2  } from '@angular/core';
+import { Component, AfterViewInit, Renderer2  } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -8,14 +8,16 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './front-layout.component.html',
   styleUrls: ['./front-layout.component.scss']
 })
-export class FrontLayoutComponent implements OnInit {
+export class FrontLayoutComponent implements AfterViewInit  {
 
   constructor(private titleService: Title, private renderer: Renderer2) {
-    this.titleService.setTitle('Welcome | Chasemind Solution Pvt. Ltd.');
+    this.titleService.setTitle('Creative Web, App, & Software Development Solutions | Chasemind Solution Pvt. Ltd.');
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    // Call your JS initialization function
     this.loadScript();
+
   }
 
   loadScript() {

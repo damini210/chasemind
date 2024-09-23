@@ -1,19 +1,30 @@
 .invalid-feedback {
-    display: block;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: .875em;
-    color: #dc3545;
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
 }
 ul {
-    list-style: none;
-    li{
-        margin: 2px;
-        a {
-            color: black;
-        }
+  list-style: none;
+  li {
+    margin: 2px;
+    a {
+      color: black;
     }
+  }
 }
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+  margin-top: 20px;
+}
+
+.user-img {
+  width: 10%;
+  height: 10%;
+}
