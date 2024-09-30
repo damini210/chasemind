@@ -279,7 +279,8 @@ section {
     padding: 0 10px !important;
   }
 
-  .services, .portfolio {
+  .services,
+  .portfolio {
     background: unset !important;
   }
 
@@ -287,8 +288,11 @@ section {
     padding-bottom: 20px !important;
   }
 
-  .footer, .hero .icon-box,
-  .services .service-item, .portfolio, .contact {
+  .footer,
+  .hero .icon-box,
+  .services .service-item,
+  .portfolio,
+  .contact {
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
@@ -1330,11 +1334,15 @@ section {
 }
 
 .portfolio-long-des {
-  display: -webkit-box;           /* Flexbox method for multiline truncation */
-  -webkit-line-clamp: 4;          /* Number of lines to display before truncation */
-  -webkit-box-orient: vertical;   /* Makes the box orientation vertical */
-  overflow: hidden;               /* Hides the overflowed content */
-  text-overflow: ellipsis;  
+  display: -webkit-box;
+  /* Flexbox method for multiline truncation */
+  -webkit-line-clamp: 4;
+  /* Number of lines to display before truncation */
+  -webkit-box-orient: vertical;
+  /* Makes the box orientation vertical */
+  overflow: hidden;
+  /* Hides the overflowed content */
+  text-overflow: ellipsis;
 }
 
 .portfolio .portfolio-wrap:hover img {
@@ -2109,7 +2117,9 @@ section {
   }
 }
 
-.hero h2 {
+.hero h2,
+.about-page h2,
+.about-section h2 {
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -2162,7 +2172,10 @@ section {
 }
 
 @media (max-width: 640px) {
-  .hero h2 {
+
+  .hero h2,
+  .about-page h2,
+  .about-section h2 {
     font-size: 36px;
   }
 
@@ -2230,6 +2243,76 @@ section {
 .hero .icon-box:hover .title a,
 .hero .icon-box:hover .icon {
   color: #fff;
+}
+
+/*about-us-page */
+
+.why-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-circle {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.outer-circle {
+  background-image: linear-gradient(to right, #00AEEF 0%, #5ECFBA 100%);
+  width: 370px;
+  height: 370px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 0;
+  animation: rotateCircle 2s linear infinite;
+  padding: 2px;
+  display: table;
+  margin: 0 30px;
+
+  .inner-circle {
+    background: white;
+    height: 370px;
+    width: 370px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 50%;
+    border-width: 1px;
+    animation: rotateCircle 2s linear infinite reverse;
+    display: table;
+    text-align: center;
+  }
+
+  .text {
+    vertical-align: middle;
+    display: table-cell;
+    padding: 0 20px;
+    text-align: center;
+    color: black;
+  }
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -2928,6 +3011,7 @@ table {
   justify-content: center;
   margin-top: 50px;
 }
+
 .portfolio-btn {
   background: #00aeef;
   border: 0;
@@ -2935,4 +3019,14 @@ table {
   color: #fff;
   transition: 0.4s;
   border-radius: 50px;
+
+  &:hover {
+    color: white !important;
+  }
+}
+
+.highlight {
+  background: linear-gradient(to right, #00AEEF 0%, #5ECFBA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

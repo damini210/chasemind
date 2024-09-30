@@ -22,6 +22,7 @@
     "@angular/platform-browser": "^18.0.0-next.3",
     "@angular/platform-browser-dynamic": "^18.0.0-next.3",
     "@angular/router": "^18.0.0-next.3",
+    "@fancyapps/fancybox": "^3.5.7",
     "@kolkov/angular-editor": "^3.0.0-beta.0",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@popperjs/core": "^2.11.8",

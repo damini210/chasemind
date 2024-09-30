@@ -24,11 +24,11 @@
                     <div *ngFor="let portfolio of portfolioList"
                         [ngClass]="['col-xl-4', 'col-md-6', 'portfolio-item', typeLists[portfolio.type]]">
                         <div class="portfolio-wrap">
-                            <a href="javascript:void(0);" aria-label="Read more about portfolio"><img
+                            <a href="portfolios/{{portfolio['slug']}}" aria-label="Read more about portfolio"><img
                                     [src]="this.commonService.rootData.uploadsUrl + 'photos/' + portfolio['Image']"
                                     class="img-fluid" alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a title="More Details">{{portfolio['title']}}</a></h4>
+                                <h4><a href="portfolios/{{portfolio['slug']}}" title="More Details">{{portfolio['title']}}</a></h4>
                                 <p>
                                     {{portfolio['shortDesc']}}
                                 </p>

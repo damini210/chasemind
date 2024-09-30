@@ -162,11 +162,14 @@ export default class PortfoliosComponent {
             this.imageUrl = environment.uploadsUrl + "photos/" + Response.data.Image;
 
             this.file = Response.data.Image;
+
           } else {
             this.imageUrl = "";
             this.file = "";
           }
-          this.getPortfolioList();
+        this.imagePreviews.push(Response.data.projectImages); // Add image preview
+            console.log(this.imagePreviews)
+          // this.getPortfolioList();
         }
         else {
           this.commonService.notifier.notify('error', Response.meta.message);

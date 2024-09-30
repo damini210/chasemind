@@ -181,22 +181,15 @@
    * Init swiper slider with 1 slide at once in desktop view
    */
   new Swiper('.slides-1', {
-    speed: 600,
+    speed: 5000,
     loop: true,
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+      delay: 1,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
     },
     slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
+    allowTouchMove: false,
     breakpoints: {
       320: {
         slidesPerView: 1,
@@ -204,7 +197,8 @@
       },
 
       1200: {
-        slidesPerView: 3
+        slidesPerView: 3,
+        spaceBetween: 40
       }
     }
   });
